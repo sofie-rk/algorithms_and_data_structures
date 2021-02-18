@@ -14,6 +14,8 @@ using namespace std;
 // Linear search: go through the array and check if every entry matches x
 // If entry is found, return the index. Otherwise, return -1.
 
+// Complexity O(n)
+
 int linearSearch(int A[], int N, int x) {
 
 	for (int i=0; i<N; i++) {
@@ -36,6 +38,8 @@ int linearSearch(int A[], int N, int x) {
 // If A[m] < x, recursively continue to serach for x in the RIGHT half of array A
 // If A[m] > x, recursively continue to search for x in the LEFT half of array A
 // otherwise, return -1
+
+// Complexity O(log2(n))
 
 int binarySearch(int A[], int i, int j, int x) {
 
