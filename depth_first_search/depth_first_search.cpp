@@ -59,7 +59,6 @@ void Graph::DFS(int v) {
 
 //------------------------------------------------------------------------------'
 
-// C++ programs start by executing the function main
 int main()
 {
 	// Create a graph with 10 vertices (from 0 to 9)
