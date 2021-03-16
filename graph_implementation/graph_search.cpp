@@ -32,7 +32,7 @@ void Graph::DFS(int v) {
 }
 
 
-void Graph::BFS(int s) {
+void Graph::BFS(int v) {
 
     cout << "\n\n,,,BREADTH-FIRST SEARCH ON THE GRAPH,\n";
 	
@@ -44,20 +44,20 @@ void Graph::BFS(int s) {
 	list<int> Q;
 
 	// Mark current node as visited, and Q.enqueue(s)
-	visited[s] = true;
-	Q.push_back(s);
+	visited[V] = true;
+	Q.push_back(v);
 
 	// While the queue is not empty:
 	while (!Q.empty()) {
 		// Print first node in queue, and dequeue it
-		s = Q.front();
-		cout << s << " ";
+		v = Q.front();
+		cout << v << " ";
 		Q.pop_front();
 
 		// Enqueue all adjacent nodes of node s that is not visited
 		// Access neighbours of node s using the adjacency matrix adj[s]
 		list<int>::iterator i;
-		for (i = adj[s].begin(); i!=adj[s].end(); ++i) {
+		for (i = adj[v].begin(); i!=adj[v].end(); ++i) {
 			if (!visited[*i]) {
 				visited[*i] = true;
 				Q.push_back(*i);
