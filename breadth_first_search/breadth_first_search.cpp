@@ -97,6 +97,10 @@ int main()
 
 	G1.addEdge(8,7);
 	G1.addEdge(8,9);
+	
+	G1.addEdge(9,4);
+	G1.addEdge(9,5);
+	G1.addEdge(9,8);
 
 	G1.BFS(0);
 
