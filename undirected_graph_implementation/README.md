@@ -1,0 +1,20 @@
+**Undirected graph**
+V = set of verices.
+E = set of edges. 
+Each edge is connecting a pair of vertices.
+Let n = number of vertices, and m = number of edges.
+
+A graph is defined as a set of vertices V and a set of edges E. G = (V,E). A graph have n vertices and m edges.
+
+A graph can be represented using adjacency matrix or adjacency list. 
+
+
+**Adjacency matrix**
+The adjacency matrix is a 2D VxV array adj, where V is the number of vertices in a graph.
+adj[i][j] = 1 if i and j are neighbors. adj[i][j] = 0 otherwise.
+The adjacency matrix consumes O(V^2) space.
+
+**Adjacency matrix**
+The adjacency list is an array of lists, A[0...n-1].
+A[i] is a linked list of all neighbors of i.
+The adjacency list consumes O(n+m) space. (n is number of vertices, m is the number of edges).
