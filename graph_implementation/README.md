@@ -20,12 +20,13 @@ The adjacency list consumes O(n+m) space. (n is number of vertices, m is the num
 
 **Undirected graph**
 Set of vertices pairwise joind by edges. Image graph1.png is an undirected graph.
-![graph1](/graph1.png)
+![graph1](graph1.png)
+
 
 **Directed graph**
 Set of vertices pairwise joined by directed edges.
 Image graph2.png is a directed graph.
-![graph2](/graph2.png)
+![graph2](graph2.png)
 
 **Path**
 Sequence of vertices connected by edges.
