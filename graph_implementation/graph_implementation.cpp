@@ -1,4 +1,5 @@
 #include "graph.h"
+
 //------------------------------------------------------------------------------'
 
 
@@ -49,7 +50,8 @@ int main()
 	G1.printAdjList();
 	G1.DFS(0);
 	G1.BFS(0);
-
+	if (G1.isCyclic()){cout << "\nG1 is cyclic\n";}
+	else {cout << "\nG1 is not cyclic\n";}
 	// Create a graph with 7 vertices (from 0 to 6)
 	Graph G2(7);
 
@@ -76,6 +78,30 @@ int main()
 	G2.printAdjList();
 	G2.DFS(4);
 	G2.BFS(4);
+	if (G2.isCyclic()){cout << "\nG2 is cyclic\n";}
+	else {cout << "\nG2 is not cyclic\n";}
+
+	Graph G3(6);
+	G3.addEdge(0,1);
+	G3.addEdge(0,3);
+	G3.addEdge(1,2);
+	G3.addEdge(2,5);
+	G3.addEdge(3,4);
+	G3.addEdge(4,5);
+
+	cout << "\n\n";
+	G3.printAdjList();
+	if (G3.isCyclic()){cout << "\nG3 is cyclic\n";}
+	else {cout << "\nG3 is not cyclic\n";}
+
+	Graph G4(4);
+	G4.addEdge(0,3);
+	G4.addEdge(3,0);
+	
+	cout << "\n\n";
+	G4.printAdjList();
+	if (G4.isCyclic()){cout << "\nG4 is cyclic\n";}
+	else {cout << "\nG4 is not cyclic\n";}
 
 	
 }

@@ -34,7 +34,7 @@ void Graph::DFS(int v) {
 
 void Graph::BFS(int v) {
 
-    cout << "\n\n,,,BREADTH-FIRST SEARCH ON THE GRAPH,\n";
+    cout << "\n\n,,,BREADTH-FIRST SEARCH ON THE GRAPH,,,\n";
 	
 	// Mark all vertices as not visited
 	bool* visited = new bool[V];

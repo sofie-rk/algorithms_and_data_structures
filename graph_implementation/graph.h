@@ -21,5 +21,10 @@ class Graph {
 	void DFS(int v);
 	void BFS(int v);
 
+	// Path and cycle algorithms
+	bool isCyclicVisit(int v, bool visited[], bool* parentStack);
+	bool isCyclic();
+
+
 
 };

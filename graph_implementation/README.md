@@ -26,3 +26,15 @@ Set of vertices pairwise joind by edges. Image graph1.png is an undirected graph
 Set of vertices pairwise joined by directed edges.
 Image graph2.png is a directed graph.
 ![graph2](/graph2.png)
+
+**Path**
+Sequence of vertices connected by edges.
+
+**Cycle**
+Path starting and ending at the same vertex.
+
+**Depth-first search (DFS)**
+Systematically visits all vertices  in a graph.
+
+**Breadth-first search (BFS)**
+Systematically visits all vertices in a graph. BFS finds the shortest path from s to all other vertices.
