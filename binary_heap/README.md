@@ -1,0 +1,31 @@
+# Binary tree
+
+A binary tree is a rooted tree. All levels in the tree are completely filled (each node has two children) except the last level which may not be completely filled. In the last layer, all keys are as left as possible.
+
+Each node in a heap store v.key, v.parent, v.left, v.right
+
+In a **max heap**, the root node must be the maximum among all keys. An example is given below. In a **min heap**, the root node must be the minimum among all keys.
+
+![heap1](heap1.png)
+
+
+
+## Operations in a binary heap
+
+PARENT(x): return parent of x
+
+LEFT(x): return left child of x
+
+RIGHT(x): return right child of x
+
+## Representation of a binary heap
+
+Binary heap can be as an array H[0 ... n]. H[0] is unused. H[1 ... n] stores nodes in level order.
+
+PARENT(x): return x/2
+
+LEFT(x): return 2*x
+
+RIGHT(x): return 2*x+1
+
+For the image above, array H is: H = [-, 20, 18, 14, 16, 15, 11, 10, 13, 4, 7, 19, 2]
