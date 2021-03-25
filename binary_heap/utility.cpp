@@ -8,6 +8,7 @@ void swap(int *x, int *y) {
 }
 
 int maxOfChild(int left, int right, int i) {
+    // Finds index of maximum child
     if (left > right) {
         return 2*i;
     } else {
