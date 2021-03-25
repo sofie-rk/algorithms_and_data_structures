@@ -1,37 +1,6 @@
-#include <iostream>
+#include "binary_heap.h"
+#include "utility.h"
 
-using namespace std;
-
-//------------------------------------------------------------------------------'
-
-
-// Utility function
-// Swaps two elements
-void swap(int *x, int *y) {
-	int temp = *x;
-	*x = *y;
-	*y = temp;
-}
-
-class MaxHeap 
-{
-	int *H; // array of elements in heap
-	int capacity; // maximum possible size of heap
-	int numberOfElements; // number of elements in heap
-
-	public:
-
-	MaxHeap(int capacity);
-
-	void printArrayRep();
-
-	void insertKey(int k);
-
-	int parent(int i) {return (i)/2;} // round up
-	int left(int i) {return 2*i;}
-	int right(int i) {return 2*i + 1;}
-
-};
 
 // Constructor
 MaxHeap::MaxHeap(int givenCapacity) {
@@ -46,10 +15,13 @@ MaxHeap::MaxHeap(int givenCapacity) {
 // Print array H which represents heap
 void MaxHeap::printArrayRep() {
 	
-	cout << "\nPRINTING HEAP ARRAY\n";
+	//cout << "\nPRINTING HEAP ARRAY\n";
+    cout << endl;
 	for (int i=0; i<numberOfElements+1; i++) {
 		cout << H[i] << " ";
 	}
+
+	cout << endl;
 }
 
 // Insert a key
@@ -65,33 +37,73 @@ void MaxHeap::insertKey(int k) {
 	int i = numberOfElements;
 	H[i] = k;
 
-	// If heap order is violated, fix it
-	while (i != 1 && H[i] > H[parent(i)]) {
-		// As long as H[i] is smaller than its parent, the heap order is violated
-		swap(&H[i], &H[parent(i)]);
-		i = parent(i);
-	}
+	// If heap order is violated, fix it with bubbleUp-algorithm
+	bubbleUp(i);
 
 	
 }
 
 
-int main()
-{
-	MaxHeap H(20);
-	
-	// Insert keys to the heap
-	H.insertKey(16);
-	H.insertKey(4);
-	H.insertKey(11);
-	H.insertKey(7);
-	H.insertKey(5);
-	H.insertKey(9);
-	H.insertKey(1);
-	H.insertKey(13);
+int MaxHeap::extractMax() {
+	// Assume that the heap is not empty
 
-	H.printArrayRep();
+	// Store max value
+	int r = H[1];
 
+    // Change H[1] to be the last node
+    H[1] = H[numberOfElements];
+
+    // Decrease number of elements
+    --numberOfElements;
+
+    // Order heap from node 1 and down
+    bubbleDown(1);
+
+    return r;
+
+} 
+
+
+void MaxHeap::increaseKey(int i, int k) {
+	// Increase at index i to value k
+	// It is assumes that k >= H[x]
+
+	// Assign new value to key x
+	H[i] = k;
+
+	// If the heap order now is violated, fix it using bubbleup
+    bubbleUp(i);
 }
 
-//------------------------------------------------------------------------------
+void MaxHeap::bubbleUp(int i) {
+    // If heap order is violated at node i because key
+    // is larger than parent key
+
+    while (i != 1 && H[i] > H[parent(i)]) {
+        // swap node i and parent node
+        swap(&H[i], &H[parent(i)]);
+        i = parent(i);
+    }
+}
+
+void MaxHeap::bubbleDown(int i) {
+    // If heap order is violated at node i because key
+    // is smaller that the key at left or right child
+
+    // Assumes that the subtrees are in correct order
+    
+    // Find index of max child
+    int maxChild = maxOfChild(H[left(i)], H[right(i)], i);
+
+    while (H[maxChild] > H[i] && left(i)<=numberOfElements && right(i)<=numberOfElements) {
+        swap(&H[i], &H[maxChild]);
+        i = maxChild;
+
+        maxChild = maxOfChild(H[left(i)], H[right(i)], i);
+
+    }
+
+
+
+
+}

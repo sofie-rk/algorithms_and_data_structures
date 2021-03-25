@@ -18,6 +18,14 @@ LEFT(x): return left child of x
 
 RIGHT(x): return right child of x
 
+MAX(): return element with the largest key
+
+EXTRACTMAX(): return and remove the element with the largest key
+
+INCREASEKEY(x, k): set x.key = k (assume k>=x.key)
+
+INSERT(x): insert key into heap at correct position
+
 ## Representation of a binary heap
 
 Binary heap can be as an array H[0 ... n]. H[0] is unused. H[1 ... n] stores nodes in level order.
@@ -29,3 +37,7 @@ LEFT(x): return 2*x
 RIGHT(x): return 2*x+1
 
 For the image above, array H is: H = [-, 16, 13, 11, 7, 5, 9, 1, 4]
+
+
+## Binary heap as a priority queue
+insertKey(x), deleteKey(x), extractMax(), increaseKey(i,k) are operations in O(log(n)) time.
