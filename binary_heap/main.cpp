@@ -37,6 +37,10 @@ int main()
 	cout << "\nextractMax()";
 	H.extractMax();
 	H.printArrayRep();
+
+	cout << "\nDelete node 2";
+	H.deleteKey(2);
+	H.printArrayRep();
 	
 
 	

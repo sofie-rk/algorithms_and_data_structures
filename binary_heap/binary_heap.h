@@ -1,6 +1,7 @@
 #pragma once
 
 #include <iostream>
+#include <climits>
 using namespace std;
 
 
@@ -16,18 +17,21 @@ class MaxHeap
 
 	void printArrayRep();
 
-	void insertKey(int k);
-
 	int parent(int i) {return (i)/2;} // round down
 	int left(int i) {return 2*i;}
 	int right(int i) {return 2*i + 1;}
 
+	void bubbleUp(int i);
+    void bubbleDown(int i);
+
+	void insertKey(int k);
+	void deleteKey(int i);
 	int max() {return H[1];}
 	int extractMax();
-
 	void increaseKey(int i, int k);
-
-    void bubbleUp(int i);
-    void bubbleDown(int i);
+    
 };
 
+void swap(int *x, int *y);
+
+int maxOfChild(int left, int right, int i);
