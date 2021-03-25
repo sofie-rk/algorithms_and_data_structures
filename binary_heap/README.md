@@ -28,4 +28,4 @@ LEFT(x): return 2*x
 
 RIGHT(x): return 2*x+1
 
-For the image above, array H is: H = [-, 20, 18, 14, 16, 15, 11, 10, 13, 4, 7, 19, 2]
+For the image above, array H is: H = [-, 16, 13, 11, 7, 5, 9, 1, 4]
