@@ -1,5 +1,4 @@
 #include "binary_heap.h"
-#include "utility.h"
 
 
 // Constructor

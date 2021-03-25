@@ -1,5 +1,4 @@
 #include "binary_heap.h"
-#include "utility.h"
 
 void MaxHeap::bubbleUp(int i) {
     // If heap order is violated at node i because key

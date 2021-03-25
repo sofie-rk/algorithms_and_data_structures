@@ -1,11 +1,13 @@
 #include <iostream>
 
+
 using namespace std;
 
 #include "binary_heap.h"
 
 
 //------------------------------------------------------------------------------'
+
 
 
 
@@ -41,9 +43,6 @@ int main()
 	cout << "\nDelete node 2";
 	H.deleteKey(2);
 	H.printArrayRep();
-	
-
-	
 
 }
 
