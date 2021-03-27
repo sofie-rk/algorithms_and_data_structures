@@ -3,11 +3,10 @@
  
 
 #include <iostream>
-#include <vector>
-
 using namespace std;
 
 #include "searching_algorithms.h"
+#include "two_sum_problem.h"
 
 
 
@@ -34,6 +33,21 @@ int main()
 
 	cout << binarySearch(B, 0, N_B-1, x3) << endl;
 	cout << binarySearch(B, 0, N_B-1, x4) << endl;
+
+	
+	// TWO-SUM PROBLEM
+	// Algo with brute force
+	cout << "43: " << twoSumBruteForce(B, N_B, 43) << endl;
+	cout << "4: " << twoSumBruteForce(B, N_B, 4) << endl;
+
+	// Algo with binary search
+	cout << "43: " << twoSumBinarySearch(B, N_B, 43) << endl;
+	cout << "4: " << twoSumBinarySearch(B, N_B, 4) << endl;
+
+	
+
+
+	
 
 
 }
