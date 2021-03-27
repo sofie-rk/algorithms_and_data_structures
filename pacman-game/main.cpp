@@ -5,6 +5,8 @@ using namespace std;
 
 int countGhosts() {
 
+	// Finds the number of ghosts in O(N^2) time
+
 	int counter = 0;
 
 	// First line is the size of the grid
