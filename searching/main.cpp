@@ -7,6 +7,7 @@ using namespace std;
 
 #include "searching_algorithms.h"
 #include "two_sum_problem.h"
+#include "maximum_subarray.h"
 
 
 
@@ -35,7 +36,7 @@ int main()
 	cout << binarySearch(B, 0, N_B-1, x4) << endl;
 
 	
-	// TWO-SUM PROBLEM
+	// TESTING TWO-SUM PROBLEM
 	// Algo with brute force
 	cout << "43: " << twoSumBruteForce(B, N_B, 43) << endl;
 	cout << "4: " << twoSumBruteForce(B, N_B, 4) << endl;
@@ -43,6 +44,18 @@ int main()
 	// Algo with binary search
 	cout << "43: " << twoSumBinarySearch(B, N_B, 43) << endl;
 	cout << "4: " << twoSumBinarySearch(B, N_B, 4) << endl;
+
+	// TESTING MAXIMAL-SUBARRY PROBLEM
+	int C[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+	int N_C = sizeof(C)/sizeof(C[0]);
+
+	cout << "Algo1: " << maximalSubArray1(C, N_C) << endl;
+	cout << "Algo2: " << maximalSubArray2(C, N_C) << endl;
+	cout << "Algo3: " << maximalSubArray3(C, 0, N_C) << endl;
+	cout << "Algo4: " << maximalSubArray4(C, N_C) << endl;
+
+
+
 
 	
 
