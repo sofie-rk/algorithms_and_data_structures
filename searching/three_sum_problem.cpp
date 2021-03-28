@@ -36,3 +36,28 @@ bool threeSumBinarySearch(int A[], int N, int k) {
     return false;
 }
 
+// O(n^2)
+bool threeSumSortedApproach(int A[], int N, int k) {
+
+    for (int i=0; i<N-1; i++) {
+
+        int l = i+1;
+        int r = N-1;
+
+        while (l < r) {
+            if (A[i] + A[l] + A[r] == k) {
+                return true;
+            }
+            else if (A[i] + A[l] + A[r] > k) {
+                // If sum is too high, decrease the index of right
+                r--;
+            }
+            else {
+                // If sum is too low, increase the index of left
+                l++;
+            }
+        }        
+    }
+    return false;
+}
+

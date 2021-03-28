@@ -55,6 +55,11 @@ int main()
 	cout << "20: " << threeSumBinarySearch(B, N_B, 20) << endl;
 	cout << "3: " << threeSumBinarySearch(B, N_B, 3) << endl;
 
+	cout << "20: " << threeSumSortedApproach(B, N_B, 20) << endl;
+	cout << "3: " << threeSumSortedApproach(B, N_B, 3) << endl;
+
+
+
 
 
 	// TESTING MAXIMAL-SUBARRY PROBLEM
