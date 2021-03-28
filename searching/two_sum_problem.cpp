@@ -6,7 +6,7 @@
 // Determine whether there is a pair of elements A[i] and A[j] 
 // (i must be different from j) such that A[i]+A[j] = k.
 
-// O(n^2), algo using brute force
+// O(n^2), algo using brute force (similar to using linear search)
 bool twoSumBruteForce(int A[], int N, int k) {
 
     for (int i=0; i<N; i++) {
