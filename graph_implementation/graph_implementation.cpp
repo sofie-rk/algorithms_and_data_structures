@@ -52,6 +52,7 @@ int main()
 	G1.BFS(0);
 	if (G1.isCyclic()){cout << "\nG1 is cyclic\n";}
 	else {cout << "\nG1 is not cyclic\n";}
+	
 	// Create a graph with 7 vertices (from 0 to 6)
 	Graph G2(7);
 
@@ -93,15 +94,21 @@ int main()
 	G3.printAdjList();
 	if (G3.isCyclic()){cout << "\nG3 is cyclic\n";}
 	else {cout << "\nG3 is not cyclic\n";}
+	
 
-	Graph G4(4);
+	Graph G4(5);
 	G4.addEdge(0,3);
 	G4.addEdge(3,0);
-	
+	G4.addEdge(1,2);
+	G4.addEdge(2,4);
+	G4.addEdge(4,1);
+
+
 	cout << "\n\n";
 	G4.printAdjList();
 	if (G4.isCyclic()){cout << "\nG4 is cyclic\n";}
 	else {cout << "\nG4 is not cyclic\n";}
+	G4.connectedComponents();
 
 	
 }

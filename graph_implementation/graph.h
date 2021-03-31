@@ -25,6 +25,8 @@ class Graph {
 	bool isCyclicVisit(int v, bool visited[], bool* parentStack);
 	bool isCyclic();
 
+	void connectedComponents();
+
 
 
 };

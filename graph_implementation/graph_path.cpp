@@ -64,3 +64,25 @@ bool Graph::isCyclicVisit(int v, bool visited[], bool *parentStack) {
     return false;
 }
 
+
+void Graph::connectedComponents() {
+
+    cout << "\n--- CONNECTED COMPONENTS IN THIS GRAPH ---\n";
+
+    // Mark all nodes as not visited
+    bool* visited = new bool[V];
+    for (int i=0; i<V; i++) {visited[i] = false;}
+
+    // Use DFS search to visit all possible nodes from v
+    for (int v=0; v<V; v++) {
+        if (visited[v] == false) {
+            DFSVisit(v, visited);
+            cout << "\n";
+        }
+
+        // if visited[v] == true, go through next node
+        // if visited, it is already in the connected component
+        // if not visisted, start DFS search to find the connected components
+    }
+
+}
