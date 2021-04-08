@@ -6,6 +6,8 @@ using namespace std;
 QuickFind::QuickFind(int n) {
     this->n = n;
 
+    id = new int[n];
+
     // Initialize array. Each element is its own representative.
     for (int k=0; k<n; k++) {
         id[k] = k;
@@ -41,6 +43,9 @@ void QuickFind::printIdArray() {
 }
 
 void testQuickFindCode() {
+
+    cout << "\nTesting Quick Find Code \n";
+
     QuickFind quickFind = QuickFind(7);
     quickFind.printIdArray();
 
@@ -67,5 +72,7 @@ void testQuickFindCode() {
 
 	quickFind.unionFunc(6,0);
 	quickFind.printIdArray();
+
+    cout << "Done testing Quick Find Code \n";
 
 }
