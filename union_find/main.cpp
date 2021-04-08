@@ -1,6 +1,7 @@
 
 #include "quick_find.h"
 #include "quick_union.h"
+#include "weighted_quick_union.h"
 
 #include <iostream>
 using namespace std;
@@ -14,8 +15,9 @@ int main()
 	
 	testQuickFindCode();
 
-	
 	testQuickUnionCode();
+	
+	testWeightedQuickUnionCode();
 	
 	
 }

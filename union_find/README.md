@@ -28,3 +28,15 @@ UNION(i,j): if FIND(i) != FIND(j), make the root of one tree the child of the ro
 
 FIND(i): follow path to the root, and return root. Time O(d) (d is depth of the tree).
 
+Problem with Quick Union is that the depth of tree might bee d=n-1.
+
+## Weighted Quick Union
+Weighted quick union is an extension of quick union. The depth of Weighted Quick Union is at most log(n), which is better than regular Quick Union.
+
+In Weighted Quick Union, you maintain an extra array size[0, ... , n-1] which contains the size of the subtree rooted at i.
+
+INIT(n): create n trees with one element each. Initialize size[0, ... , n-1].
+
+UNION(i,j): if FIND(i)!=FIND(j), make the root of the *smaller* tree the childe of the root of the *larger* tree. Time O(log(n)).
+
+FIND(i): follow path to the root, then return root. Time O(log(n)).
