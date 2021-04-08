@@ -50,6 +50,8 @@ void testQuickUnionCode() {
 	quickUnion.unionFunc(3,4);
 	quickUnion.printParentArray();
 
+    cout << "FIND(3): " << quickUnion.find(3) << endl;
+
 	quickUnion.unionFunc(5,0);
 	quickUnion.printParentArray();
 
@@ -61,6 +63,8 @@ void testQuickUnionCode() {
 
 	quickUnion.unionFunc(0,1);
 	quickUnion.printParentArray();
+
+    cout << "FIND(0): " << quickUnion.find(0) << endl;
 
 	quickUnion.unionFunc(2,6);
 	quickUnion.printParentArray();

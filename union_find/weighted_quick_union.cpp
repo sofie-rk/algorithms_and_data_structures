@@ -62,6 +62,8 @@ void testWeightedQuickUnionCode() {
 	wQuickUnion.unionFunc(3,4);
 	wQuickUnion.printParentArray();
 
+    cout << "FIND(3): " << wQuickUnion.find(3) << endl;
+
 	wQuickUnion.unionFunc(5,0);
 	wQuickUnion.printParentArray();
 
@@ -73,6 +75,8 @@ void testWeightedQuickUnionCode() {
 
 	wQuickUnion.unionFunc(0,1);
 	wQuickUnion.printParentArray();
+
+    cout << "FIND(1): " << wQuickUnion.find(1) << endl;
 
 	wQuickUnion.unionFunc(2,6);
 	wQuickUnion.printParentArray();

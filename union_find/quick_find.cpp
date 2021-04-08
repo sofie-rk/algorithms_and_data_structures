@@ -52,6 +52,8 @@ void testQuickFindCode() {
 	quickFind.unionFunc(3,4);
 	quickFind.printIdArray();
 
+    cout << "FIND(3): " << quickFind.find(3) << endl;
+
 	quickFind.unionFunc(5,0);
 	quickFind.printIdArray();
 
@@ -63,6 +65,8 @@ void testQuickFindCode() {
 
 	quickFind.unionFunc(0,1);
 	quickFind.printIdArray();
+
+    cout << "FIND(3): " << quickFind.find(3) << endl;
 
 	quickFind.unionFunc(2,6);
 	quickFind.printIdArray();
