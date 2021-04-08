@@ -1,21 +1,44 @@
-//
-// This is example code from Chapter 2.2 "The classic first program" of
-// "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
-// 
-// keep_window_open() added for TDT4102, excercise 0
 
-// This program outputs the message "Hello, World!" to the monitor
+#include "quick_find.h"
 
-#include "std_lib_facilities.h"
+#include <iostream>
+using namespace std;
 
 //------------------------------------------------------------------------------'
 
 // C++ programs start by executing the function main
 int main()
 {
-	cout << "Hello, World!\n";
+	QuickFind q = QuickFind(7);
+	q.printIdArray();
 
-	keep_window_open();
+	q.unionFunc(3,4);
+	q.printIdArray();
+
+	q.unionFunc(5,0);
+	q.printIdArray();
+
+	q.unionFunc(4,5);
+	q.printIdArray();
+
+	q.unionFunc(4,3);
+	q.printIdArray();
+
+	q.unionFunc(0,1);
+	q.printIdArray();
+
+	q.unionFunc(2,6);
+	q.printIdArray();
+
+	q.unionFunc(0,4);
+	q.printIdArray();
+
+	q.unionFunc(6,0);
+	q.printIdArray();
+
+	
+	
+
 }
 
 //------------------------------------------------------------------------------
