@@ -40,3 +40,10 @@ INIT(n): create n trees with one element each. Initialize size[0, ... , n-1].
 UNION(i,j): if FIND(i)!=FIND(j), make the root of the *smaller* tree the childe of the root of the *larger* tree. Time O(log(n)).
 
 FIND(i): follow path to the root, then return root. Time O(log(n)).
+
+## Path Compression
+When doing the FIND(i) operation, compress the path. Make all nodes on the path children of the root.
+
+This will give no change in running time for a single FIND(i). However, FIND(i) will become faster since the depth of the tree will become smaller.
+
+This works on both quick union and weighted quick union.

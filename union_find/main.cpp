@@ -2,6 +2,7 @@
 #include "quick_find.h"
 #include "quick_union.h"
 #include "weighted_quick_union.h"
+#include "path_compression.h"
 
 #include <iostream>
 using namespace std;
@@ -18,6 +19,8 @@ int main()
 	testQuickUnionCode();
 	
 	testWeightedQuickUnionCode();
+
+	testPathCompressionCode();
 	
 	
 }
