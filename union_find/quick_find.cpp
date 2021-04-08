@@ -39,3 +39,33 @@ void QuickFind::printIdArray() {
     }
     cout << "\n";
 }
+
+void testQuickFindCode() {
+    QuickFind quickFind = QuickFind(7);
+    quickFind.printIdArray();
+
+	quickFind.unionFunc(3,4);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(5,0);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(4,5);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(4,3);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(0,1);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(2,6);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(0,4);
+	quickFind.printIdArray();
+
+	quickFind.unionFunc(6,0);
+	quickFind.printIdArray();
+
+}

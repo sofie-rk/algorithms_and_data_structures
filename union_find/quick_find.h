@@ -12,3 +12,5 @@ class QuickFind {
 
     void printIdArray();
 };
+
+void testQuickFindCode();
