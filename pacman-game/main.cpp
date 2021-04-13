@@ -3,12 +3,14 @@
 #include <fstream>
 #include <list>
 #include <vector>
+#include <climits>
 
 
 using namespace std;
 
 class Graph
 {
+	int N;				
 	int V; 				// number of nodes
 	string charStr;		// string from input
 	list<int>* adj; 	// adjacency list
@@ -24,9 +26,12 @@ class Graph
 
 	int searchForReachableGhosts();
 
+	string pathToClosestGhost();
+
 };
 
 Graph::Graph(int N, string charStr) {
+	this->N = N;
 	this->V = N*N;
 	this->charStr = charStr;
 
@@ -107,14 +112,14 @@ int Graph::searchForReachableGhosts() {
 	// While the queue is not empty:
 	while (!Q.empty()) {
 		// Print first node in queue, and dequeue it
-		packManIndex = Q.front();
-		if (charStr.at(packManIndex) == 'G') {reachableGhosts++;}
+		int u = Q.front();
+		if (charStr.at(u) == 'G') {reachableGhosts++;}
 		Q.pop_front();
 
 		// Enqueue all adjacent nodes of node s that is not visited
 		// Access neighbours of node s using the adjacency matrix adj[s]
 		list<int>::iterator i;
-		for (i = adj[packManIndex].begin(); i!=adj[packManIndex].end(); ++i) {
+		for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
 			if (!visited[*i]) {
 				visited[*i] = true;
 				Q.push_back(*i);
@@ -126,8 +131,82 @@ int Graph::searchForReachableGhosts() {
 
 }
 
+string Graph::pathToClosestGhost() {
+	string path = "";
 
-void codejudgeTest(){
+	bool ghostFound = false;
+	int ghostFoundIndex = -1;
+
+	// Will store predecessor of each vertex in array p
+	int p[V];
+	// WIl store distance from source in array d
+	int d[V];
+
+	// Using BFS algorithm
+	bool* visited = new bool[V];
+
+	// All vertices as not visited
+	// Parent is -1, distance is infinity
+	for (int i=0; i<V; i++) {
+		visited[i]=false;
+		d[i] = INT_MAX;
+		p[i] = -1;
+	}
+
+	// Create a queue Q
+	list<int> Q;
+
+	// Mark current node as visited, and Q.enqueue(packmanIndex)
+	visited[packManIndex] = true;
+	d[packManIndex] = 0;
+	Q.push_back(packManIndex);
+
+	// While the queue is not empty:
+	while (!Q.empty() && !ghostFound) {
+		// Print first node in queue, and dequeue it
+		int u = Q.front();
+		Q.pop_front();
+
+		// Enqueue all adjacent nodes of node s that is not visited
+		// Access neighbours of node s using the adjacency matrix adj[s]
+		list<int>::iterator i;
+		for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
+			if (!visited[*i]) {
+				visited[*i] = true;
+				d[*i] = d[u] + 1;
+				p[*i] = u;
+				Q.push_back(*i);
+
+				if (charStr.at(*i) == 'G') {
+					ghostFound = true;
+					ghostFoundIndex = *i;
+				}
+			}
+		}
+	}
+
+	vector<int> pathVec;
+	pathVec.push_back(ghostFoundIndex);
+	int crawl = ghostFoundIndex;
+	while (p[crawl] != -1) {
+		pathVec.push_back(p[crawl]);
+		crawl = p[crawl];
+	}
+	
+
+	for (int i=pathVec.size()-2; i>=0; i--) {
+		if (pathVec.at(i)-N == pathVec.at(i+1)) { path += "S ";} 	// SOUTH
+		else if (pathVec.at(i)+N == pathVec.at(i+1)) {path += "N ";} // NORTH 
+		else if (pathVec.at(i)+1 == pathVec.at(i+1)) {path += "W ";} // WEST
+		else if (pathVec.at(i)-1 == pathVec.at(i+1)) {path += "E ";} // EAST
+	}
+
+	return path;
+}
+
+
+
+void codejudgeReachableGhost(){
 	// Reading through input
 	// First line is the size of the grid
 	int N;
@@ -149,9 +228,26 @@ void codejudgeTest(){
 
 }
 
+void codejudgeClosestGhost() {
+	// Reading through input
+	// First line is the size of the grid
+	int N;
+	cin >> N;
 
+	string resultStr;
 
+	// Read N lines
+	for (int i=0; i<N+1; i++) {
+		string line;
+		getline(cin, line);
+		resultStr += line;
+	}
 
+	// Create graph
+	Graph G = Graph(N, resultStr);
+
+	cout << G.pathToClosestGhost();
+}
 
 
 
@@ -159,15 +255,19 @@ void codejudgeTest(){
 
 int main()
 {
-	//cout << countGhosts();
 
-	
-	codejudgeTest();
+	codejudgeClosestGhost();
+	//cout << countGhosts();
+	// codejudgeReachableGhost();
 
 	// int N = 8;
 	// string resultStr = "######### #    ## # ## ## #  #G##   P####### # ##G   #G#########";
 
 	// Graph G = Graph(N, resultStr);
+
+	// string path = G.pathToClosestGhost();
+
+	// cout << path;
 
 	// cout << "Reachable ghosts: " << G.searchForReachableGhosts() << endl;
 
@@ -177,15 +277,20 @@ int main()
 
 	// Graph G2 = Graph(N2, resultStr2);
 
+	// string path2 = G2.pathToClosestGhost();
+	// cout << path2;
+
 	// cout << "Reachable ghosys: " << G2.searchForReachableGhosts() << endl;
 
 	// G2.printGraphInfo();
 
 	// int N3 = 7;
 
-	// string resultString3 = "########G    ###### ##     ## ######     P#######";
+	// string resultString3 = "########G    ###### ##     ## ######    P########";
 
 	// Graph G3 = Graph(N3, resultString3);
+
+	// cout << G3.pathToClosestGhost();
 
 	// G3.printGraphInfo();
 
