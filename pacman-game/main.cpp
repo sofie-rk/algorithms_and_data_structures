@@ -4,7 +4,7 @@
 #include <list>
 #include <vector>
 #include <climits>
-
+#include <set>
 
 using namespace std;
 
@@ -97,7 +97,7 @@ void GraphMultiPlayer::printGraphMultiPlayerInfo() {
 
 int GraphMultiPlayer::closestPath() {
 
-	vector<int> distances;
+	set<int> distances;
 
 	// If less packmans than ghosts, iterate through packmans
 	if (packManIndex.size() < ghostIndex.size()) {
@@ -144,7 +144,7 @@ int GraphMultiPlayer::closestPath() {
 
 						if (charStr.at(*i) == 'G') {
 							ghostFound = true;
-							distances.push_back(d[*i]);
+							distances.insert(d[*i]);
 						}
 					}
 				}
@@ -195,7 +195,7 @@ int GraphMultiPlayer::closestPath() {
 
 						if (charStr.at(*i) == 'P') {
 							packManFound = true;
-							distances.push_back(d[*i]);
+							distances.insert(d[*i]);
 						}
 					}
 				}
@@ -204,17 +204,8 @@ int GraphMultiPlayer::closestPath() {
 
 	}
 
-	
 
-	int minDistance = INT_MAX;
-
-	for (auto distance : distances) {
-		if (distance < minDistance) {
-			minDistance = distance;
-		}
-	}
-
-	return minDistance;
+	return *distances.begin();
 }
 
 void testMultiplayerInput() {
