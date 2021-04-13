@@ -8,29 +8,27 @@
 
 using namespace std;
 
-class Graph
+class GraphMultiPlayer
 {
 	int N;				
 	int V; 				// number of nodes
 	string charStr;		// string from input
 	list<int>* adj; 	// adjacency list
 	vector<int> ghostIndex;	// vector with indexes where you can find ghosts
-	int packManIndex;	// index where packman is found
+	vector<int> packManIndex;	// vector with indexes where you can find packman
 	
 	public:
-	Graph(int V, string charStr);
+	GraphMultiPlayer(int V, string charStr);
 
 	void addEdge(int i, int j);
 
-	void printGraphInfo();
+	void printGraphMultiPlayerInfo();
 
-	int searchForReachableGhosts();
-
-	string pathToClosestGhost();
+	int closestPath();
 
 };
 
-Graph::Graph(int N, string charStr) {
+GraphMultiPlayer::GraphMultiPlayer(int N, string charStr) {
 	this->N = N;
 	this->V = N*N;
 	this->charStr = charStr;
@@ -43,7 +41,7 @@ Graph::Graph(int N, string charStr) {
 
 		// Check if packman or ghost
 		if (charStr.at(i) == 'P') {
-				packManIndex = i;
+				packManIndex.push_back(i);
 		}
 		else if (charStr.at(i) == 'G') {
 				ghostIndex.push_back(i);
@@ -69,13 +67,17 @@ Graph::Graph(int N, string charStr) {
 
 
 
-void Graph::addEdge(int i, int j) {
+void GraphMultiPlayer::addEdge(int i, int j) {
 	adj[i].push_back(j);
 	adj[j].push_back(i);
 }
 
-void Graph::printGraphInfo() {
-	cout << "P is located at: " << packManIndex << endl;
+void GraphMultiPlayer::printGraphMultiPlayerInfo() {
+	cout << "P is located at: ";
+	for (int i=0; i<packManIndex.size(); i++) {
+		cout << packManIndex.at(i) << " ";
+	}
+	cout << endl;
 	cout << "G is located at: ";
 	for (int i=0; i<ghostIndex.size(); i++) {
 		cout << ghostIndex.at(i) << " ";
@@ -93,120 +95,141 @@ void Graph::printGraphInfo() {
 	cout << "\n";
 }
 
+int GraphMultiPlayer::closestPath() {
 
-int Graph::searchForReachableGhosts() {
-	int reachableGhosts = 0;
+	vector<int> distances;
 
-	// USE BFS TO SEARCH FOR GHOSTS
-	// Mark all vertices as not visited
-	bool* visited = new bool[V];
-	for (int i=0; i<V; i++){visited[i]=false;}
+	// If less packmans than ghosts, iterate through packmans
+	if (packManIndex.size() < ghostIndex.size()) {
+		for (auto packMan:packManIndex) {
+			bool ghostFound = false;
 
-	// Create a queue Q
-	list<int> Q;
+			// Will store predecessor of each vertex in array p
+			int p[V];
+			// WIl store distance from source in array d
+			int d[V];
 
-	// Mark current node as visited, and Q.enqueue(packmanIndex)
-	visited[V] = true;
-	Q.push_back(packManIndex);
+			// Using BFS algorithm
+			bool* visited = new bool[V];
 
-	// While the queue is not empty:
-	while (!Q.empty()) {
-		// Print first node in queue, and dequeue it
-		int u = Q.front();
-		if (charStr.at(u) == 'G') {reachableGhosts++;}
-		Q.pop_front();
-
-		// Enqueue all adjacent nodes of node s that is not visited
-		// Access neighbours of node s using the adjacency matrix adj[s]
-		list<int>::iterator i;
-		for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
-			if (!visited[*i]) {
-				visited[*i] = true;
-				Q.push_back(*i);
+			// All vertices as not visited
+			// Parent is -1, distance is infinity
+			for (int i=0; i<V; i++) {
+				visited[i]=false;
+				d[i] = INT_MAX;
+				p[i] = -1;
 			}
-		}
-	}
+			// Create a queue Q
+			list<int> Q;
 
-	return reachableGhosts;
+			// Mark current node as visited, and Q.enqueue(packmanIndex)
+			visited[packMan] = true;
+			d[packMan] = 0;
+			Q.push_back(packMan);
 
-}
+			while (!Q.empty() && !ghostFound) {
+				// Print first node in queue, and dequeue it
+				int u = Q.front();
+				Q.pop_front();
 
-string Graph::pathToClosestGhost() {
-	string path = "";
+				// Enqueue all adjacent nodes of node s that is not visited
+				// Access neighbours of node s using the adjacency matrix adj[s]
+				list<int>::iterator i;
+				for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
+					if (!visited[*i]) {
+						visited[*i] = true;
+						d[*i] = d[u] + 1;
+						p[*i] = u;
+						Q.push_back(*i);
 
-	bool ghostFound = false;
-	int ghostFoundIndex = -1;
-
-	// Will store predecessor of each vertex in array p
-	int p[V];
-	// WIl store distance from source in array d
-	int d[V];
-
-	// Using BFS algorithm
-	bool* visited = new bool[V];
-
-	// All vertices as not visited
-	// Parent is -1, distance is infinity
-	for (int i=0; i<V; i++) {
-		visited[i]=false;
-		d[i] = INT_MAX;
-		p[i] = -1;
-	}
-
-	// Create a queue Q
-	list<int> Q;
-
-	// Mark current node as visited, and Q.enqueue(packmanIndex)
-	visited[packManIndex] = true;
-	d[packManIndex] = 0;
-	Q.push_back(packManIndex);
-
-	// While the queue is not empty:
-	while (!Q.empty() && !ghostFound) {
-		// Print first node in queue, and dequeue it
-		int u = Q.front();
-		Q.pop_front();
-
-		// Enqueue all adjacent nodes of node s that is not visited
-		// Access neighbours of node s using the adjacency matrix adj[s]
-		list<int>::iterator i;
-		for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
-			if (!visited[*i]) {
-				visited[*i] = true;
-				d[*i] = d[u] + 1;
-				p[*i] = u;
-				Q.push_back(*i);
-
-				if (charStr.at(*i) == 'G') {
-					ghostFound = true;
-					ghostFoundIndex = *i;
+						if (charStr.at(*i) == 'G') {
+							ghostFound = true;
+							distances.push_back(d[*i]);
+						}
+					}
 				}
 			}
 		}
+		
+	} else { //less ghosts than packmans
+		for (auto ghost : ghostIndex) {
+			bool packManFound = false;
+
+			// Will store predecessor of each vertex in array p
+			int p[V];
+			// WIl store distance from source in array d
+			int d[V];
+
+			// Using BFS algorithm
+			bool* visited = new bool[V];
+
+			// All vertices as not visited
+			// Parent is -1, distance is infinity
+			for (int i=0; i<V; i++) {
+				visited[i]=false;
+				d[i] = INT_MAX;
+				p[i] = -1;
+			}
+			// Create a queue Q
+			list<int> Q;
+
+			// Mark current node as visited, and Q.enqueue(packmanIndex)
+			visited[ghost] = true;
+			d[ghost] = 0;
+			Q.push_back(ghost);
+
+			while (!Q.empty() && !packManFound) {
+				// Print first node in queue, and dequeue it
+				int u = Q.front();
+				Q.pop_front();
+
+				// Enqueue all adjacent nodes of node s that is not visited
+				// Access neighbours of node s using the adjacency matrix adj[s]
+				list<int>::iterator i;
+				for (i = adj[u].begin(); i!=adj[u].end(); ++i) {
+					if (!visited[*i]) {
+						visited[*i] = true;
+						d[*i] = d[u] + 1;
+						p[*i] = u;
+						Q.push_back(*i);
+
+						if (charStr.at(*i) == 'P') {
+							packManFound = true;
+							distances.push_back(d[*i]);
+						}
+					}
+				}
+			}
+		}
+
 	}
 
-	vector<int> pathVec;
-	pathVec.push_back(ghostFoundIndex);
-	int crawl = ghostFoundIndex;
-	while (p[crawl] != -1) {
-		pathVec.push_back(p[crawl]);
-		crawl = p[crawl];
-	}
 	
 
-	for (int i=pathVec.size()-2; i>=0; i--) {
-		if (pathVec.at(i)-N == pathVec.at(i+1)) { path += "S ";} 	// SOUTH
-		else if (pathVec.at(i)+N == pathVec.at(i+1)) {path += "N ";} // NORTH 
-		else if (pathVec.at(i)+1 == pathVec.at(i+1)) {path += "W ";} // WEST
-		else if (pathVec.at(i)-1 == pathVec.at(i+1)) {path += "E ";} // EAST
+	int minDistance = INT_MAX;
+
+	for (auto distance : distances) {
+		if (distance < minDistance) {
+			minDistance = distance;
+		}
 	}
 
-	return path;
+	return minDistance;
 }
 
+void testMultiplayerInput() {
 
+	int N = 8;
 
-void codejudgeReachableGhost(){
+	string resStr = "#########P#   P## # ## ## #  #G##   P####### # ##G   #G#########";
+
+	GraphMultiPlayer G = GraphMultiPlayer(N, resStr);
+
+	cout << G.closestPath();
+
+}
+
+void codejudgeMultiPlayer() {
 	// Reading through input
 	// First line is the size of the grid
 	int N;
@@ -222,31 +245,9 @@ void codejudgeReachableGhost(){
 	}
 
 	// Create graph
-	Graph G = Graph(N, resultStr);
+	GraphMultiPlayer G = GraphMultiPlayer(N, resultStr);
 
-	cout << G.searchForReachableGhosts();
-
-}
-
-void codejudgeClosestGhost() {
-	// Reading through input
-	// First line is the size of the grid
-	int N;
-	cin >> N;
-
-	string resultStr;
-
-	// Read N lines
-	for (int i=0; i<N+1; i++) {
-		string line;
-		getline(cin, line);
-		resultStr += line;
-	}
-
-	// Create graph
-	Graph G = Graph(N, resultStr);
-
-	cout << G.pathToClosestGhost();
+	cout << G.closestPath();
 }
 
 
@@ -256,16 +257,19 @@ void codejudgeClosestGhost() {
 int main()
 {
 
-	codejudgeClosestGhost();
+	codejudgeMultiPlayer();
+
+	//testMultiplayerInput();
+	//codejudgeClosestGhost();
 	//cout << countGhosts();
 	// codejudgeReachableGhost();
 
 	// int N = 8;
 	// string resultStr = "######### #    ## # ## ## #  #G##   P####### # ##G   #G#########";
 
-	// Graph G = Graph(N, resultStr);
+	// GraphMultiPlayer G = GraphMultiPlayer(N, resultStr);
 
-	// string path = G.pathToClosestGhost();
+	// string path = G.closestPath();
 
 	// cout << path;
 
@@ -275,24 +279,24 @@ int main()
 	// int N2 = 8;
 	// string resultStr2 = "#########G#    ## ####G##  G  P##### G ##G #   ## G# G #########";
 
-	// Graph G2 = Graph(N2, resultStr2);
+	// GraphMultiPlayer G2 = GraphMultiPlayer(N2, resultStr2);
 
-	// string path2 = G2.pathToClosestGhost();
+	// string path2 = G2.closestPath();
 	// cout << path2;
 
 	// cout << "Reachable ghosys: " << G2.searchForReachableGhosts() << endl;
 
-	// G2.printGraphInfo();
+	// G2.printGraphMultiPlayerInfo();
 
 	// int N3 = 7;
 
 	// string resultString3 = "########G    ###### ##     ## ######    P########";
 
-	// Graph G3 = Graph(N3, resultString3);
+	// GraphMultiPlayer G3 = GraphMultiPlayer(N3, resultString3);
 
-	// cout << G3.pathToClosestGhost();
+	// cout << G3.closestPath();
 
-	// G3.printGraphInfo();
+	// G3.printGraphMultiPlayerInfo();
 
 	// cout << G3.searchForReachableGhosts();
 
