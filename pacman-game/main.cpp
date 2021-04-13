@@ -251,9 +251,9 @@ void codejudgeMultiPlayer() {
 int main()
 {
 
-	//codejudgeMultiPlayer();
+	codejudgeMultiPlayer();
 
-	testMultiplayerInput();
+	//testMultiplayerInput();
 	//codejudgeClosestGhost();
 	//cout << countGhosts();
 	// codejudgeReachableGhost();
