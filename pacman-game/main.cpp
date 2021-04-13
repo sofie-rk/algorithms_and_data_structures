@@ -21,15 +21,8 @@ class Graph
 	void addEdge(int i, int j);
 
 	void printGraphInfo();
-
-	void updatePackMan();
-
-	void addGhost(int i);
-
 	int searchForReachableGhosts();
 	
-
-
 };
 
 Graph::Graph(int N, string charStr) {
@@ -41,11 +34,17 @@ Graph::Graph(int N, string charStr) {
 	// Read first N-1 characters
 	int r = 0;
 	for (int i=0; i<N*N-N; i++) {
-		r = i/8+1;
+		r = i/N+1;
 		if (i == (N*r - 1)) {
 			// Only check down
-			if (charStr.at(i) != '#' && charStr.at(i+8) != '#') {
-				addEdge(i, i+8);
+			if (charStr.at(i) != '#' && charStr.at(i+N) != '#') {
+				addEdge(i, i+N);
+			}
+			if (charStr.at(i) == 'P') {
+				packManIndex = i;
+				}
+			else if (charStr.at(i) == 'G') {
+				ghostIndex.push_back(i);
 			}
 		} else {
 			// Check the other
@@ -54,16 +53,17 @@ Graph::Graph(int N, string charStr) {
 				if (charStr.at(i+1) != '#') {
 					addEdge(i,i+1);
 				}
-				if (charStr.at(i+8) != '#') {
-					addEdge(i,i+8);
+				if (charStr.at(i+N) != '#') {
+					addEdge(i,i+N);
 				}
 			}
-		if (charStr.at(i) == 'P') {
-			packManIndex = i;
-		}
-		else if (charStr.at(i) == 'G') {
-			ghostIndex.push_back(i);
-		}
+			if (charStr.at(i) == 'P') {
+				packManIndex = i;
+				}
+			else if (charStr.at(i) == 'G') {
+				ghostIndex.push_back(i);
+			}
+		
 		
 	}
 
@@ -74,6 +74,13 @@ Graph::Graph(int N, string charStr) {
 		// Check if possible to go to the right
 		if (charStr.at(i) != '#' && charStr.at(i+1) != '#') {
 			addEdge(i, i+1);
+		}
+
+		if (charStr.at(i) == 'P') {
+			packManIndex = i;
+		}
+		else if (charStr.at(i) == 'G') {
+			ghostIndex.push_back(i);
 		}
 	}
 
@@ -105,7 +112,43 @@ void Graph::printGraphInfo() {
 }
 
 
+int Graph::searchForReachableGhosts() {
+	int reachableGhosts = 0;
 
+	// USE BFS TO SEARCH FOR GHOSTS
+	// Mark all vertices as not visited
+	bool* visited = new bool[V];
+	for (int i=0; i<V; i++){visited[i]=false;}
+
+	// Create a queue Q
+	list<int> Q;
+
+	// Mark current node as visited, and Q.enqueue(packmanIndex)
+	visited[V] = true;
+	Q.push_back(packManIndex);
+
+	// While the queue is not empty:
+	while (!Q.empty()) {
+		// Print first node in queue, and dequeue it
+		packManIndex = Q.front();
+		if (charStr.at(packManIndex) == 'G') {reachableGhosts++;}
+		//cout << packManIndex << " ";
+		Q.pop_front();
+
+		// Enqueue all adjacent nodes of node s that is not visited
+		// Access neighbours of node s using the adjacency matrix adj[s]
+		list<int>::iterator i;
+		for (i = adj[packManIndex].begin(); i!=adj[packManIndex].end(); ++i) {
+			if (!visited[*i]) {
+				visited[*i] = true;
+				Q.push_back(*i);
+			}
+		}
+	}
+
+	return reachableGhosts;
+
+}
 
 
 
@@ -124,25 +167,49 @@ int main()
 
 	// Reading through input
 	// First line is the size of the grid
-	// int N;
-	// cin >> N;
+	int N;
+	cin >> N;
 
-	// string resultStr;
+	string resultStr;
 
-	// // Read N lines
-	// for (int i=0; i<N+1; i++) {
-	// 	string line;
-	// 	getline(cin, line);
-	// 	resultStr += line;
-	// }
+	// Read N lines
+	for (int i=0; i<N+1; i++) {
+		string line;
+		getline(cin, line);
+		resultStr += line;
+	}
 
-	int N = 8;
-	string resultStr = "######### #    ## # ## ## #  #G##   P####### # ##G   #G#########";
-
+	// Create graph
 	Graph G = Graph(N, resultStr);
 
-	G.printGraphInfo();
+	cout << G.searchForReachableGhosts();
 
+	// int N = 8;
+	// string resultStr = "######### #    ## # ## ## #  #G##   P####### # ##G   #G#########";
+
+	// Graph G = Graph(N, resultStr);
+
+	// //cout << "Reachable ghosts: " << G.searchForReachableGhosts() << endl;
+
+	// cout << "TESTING NEXT MAP: " << endl;
+	// int N2 = 8;
+	// string resultStr2 = "#########G#    ## ####G##  G  P##### G ##G #   ## G# G #########";
+
+	// Graph G2 = Graph(N2, resultStr2);
+
+	// cout << "Reachable ghosys: " << G2.searchForReachableGhosts() << endl;
+
+	// G2.printGraphInfo();
+
+	// int N3 = 7;
+
+	// string resultString3 = "########G    ###### ##     ## ######     P#######";
+
+	// Graph G3 = Graph(N3, resultString3);
+
+	// G3.printGraphInfo();
+
+	// cout << G3.searchForReachableGhosts();
 
 }
 
