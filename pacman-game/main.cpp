@@ -100,10 +100,11 @@ int GraphMultiPlayer::closestPath() {
 	set<int> distances;
 	distances.insert(INT_MAX);
 
+	if (packManIndex.size() + ghostIndex.size() > N*N-N) {return 1;}
+
 	// If less packmans than ghosts, iterate through packmans
 	if (packManIndex.size() < ghostIndex.size()) {
 		for (auto packMan:packManIndex) {
-			if(*distances.begin() > 1){
 			bool ghostFound = false;
 
 			// Will store predecessor of each vertex in array p
@@ -146,16 +147,15 @@ int GraphMultiPlayer::closestPath() {
 
 						if (charStr.at(*i) == 'G') {
 							ghostFound = true;
+							if (d[*i] == 1) {return 1;}
 							distances.insert(d[*i]);
 						}
 					}
 				}
 			}
 		}
-		}
 	} else { //less ghosts than packmans
 		for (auto ghost : ghostIndex) {
-			if(*distances.begin() > 1){
 			bool packManFound = false;
 
 			// Will store predecessor of each vertex in array p
@@ -198,12 +198,12 @@ int GraphMultiPlayer::closestPath() {
 
 						if (charStr.at(*i) == 'P') {
 							packManFound = true;
+							if (d[*i] == 1) {return 1;}
 							distances.insert(d[*i]);
 						}
 					}
 				}
 			}
-		}
 		}
 	}
 
@@ -250,7 +250,7 @@ void codejudgeMultiPlayer() {
 
 int main()
 {
-
+	//testMultiplayerInput();
 	codejudgeMultiPlayer();
 
 	//testMultiplayerInput();
