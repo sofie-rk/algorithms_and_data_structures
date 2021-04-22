@@ -1,13 +1,13 @@
 #include "weighted_graph.h"
 
-#include <vector>
+#include <list>
 #include <iostream>
 
 using namespace std;
 
 WeightedGraph::WeightedGraph(int V) {
     this->V = V;
-    adj = new vector<pair<int,int>>[V];
+    adj = new list<pair<int,int>>[V];
 }
 
 void WeightedGraph::addEdge(int u, int v, int w) {

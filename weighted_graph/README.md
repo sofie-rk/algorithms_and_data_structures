@@ -15,7 +15,13 @@ Spanning tree of minimum total weight.
 TODO
 
 ## Prim's algorithm
-TODO
+Used to find a minimum spanning tree.
+
+**Idea:** Grow a tree T from vertex s. In each step, add *lightest* edge with one endpoint in T. Stop when T has n-1 edges.
+
+**Implementation:** using priority queue. Maintain vertices outside T in a priority queue. The key of vertex v is the weight of lightest cut edge (infinity if no cut edge). In each step, find lightest edge with EXTRACT-MIN. Update weight of neighbors of new vertex with DECREASE-KEY.
+
+
 
 ## Dijkstra's algorithm
 TODO

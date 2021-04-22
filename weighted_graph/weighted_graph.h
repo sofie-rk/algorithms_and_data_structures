@@ -1,5 +1,5 @@
 #pragma once
-#include <vector>
+#include <list>
 
 using namespace std;
 
@@ -8,7 +8,7 @@ class WeightedGraph
     int V;  // number of vertices in the graph
 
     // Using vector of pair vectors
-    vector<pair<int,int>>* adj;
+    list<pair<int,int>>* adj;
 
     public:
     WeightedGraph(int V);
@@ -16,5 +16,8 @@ class WeightedGraph
     void addEdge(int u, int v, int w);
 
     void printGraphInfo();
+
+    // Minimum spanning tree algorithms
+    void primMST(int src);
 
 };
