@@ -1,21 +1,34 @@
-//
-// This is example code from Chapter 2.2 "The classic first program" of
-// "Programming -- Principles and Practice Using C++" by Bjarne Stroustrup
-// 
-// keep_window_open() added for TDT4102, excercise 0
+#include "hashing.h"
 
-// This program outputs the message "Hello, World!" to the monitor
+#include <iostream>
+using namespace std;
 
-#include "std_lib_facilities.h"
+
+
 
 //------------------------------------------------------------------------------'
-
-// C++ programs start by executing the function main
 int main()
 {
-	cout << "Hello, World!\n";
+    ChainedHashing H =  ChainedHashing(10);
 
-	keep_window_open();
+    H.insertItem(1);
+    H.insertItem(13);
+    H.insertItem(16);
+    H.insertItem(41);
+    H.insertItem(54);
+    H.insertItem(66);
+    H.insertItem(96);
+
+    H.displayChainedHashing();
+
+    cout << "Deleting 66" << endl;
+    H.deleteItem(66);
+
+    H.displayHash();
+    
+    cout << H.searchItem(1) << endl;
+
+    cout << H.searchItem(3) << endl;
 }
 
 //------------------------------------------------------------------------------
