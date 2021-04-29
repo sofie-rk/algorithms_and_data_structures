@@ -19,7 +19,7 @@ int ChainedHashing::searchItem(int k) {
 
     // Linear search in A[h(key)] for k
     for (list<int>::iterator i = table[index].begin(); i != table[index].end(); i++) {
-        if (*i == index) {
+        if (*i == k) {
             return k;
         }
     }

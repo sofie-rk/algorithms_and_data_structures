@@ -21,14 +21,14 @@ int main()
 
     H.displayChainedHashing();
 
-    cout << "Deleting 66" << endl;
-    H.deleteItem(66);
+    cout << "Searching for 16: " << H.searchItem(16) << "\n\n";
 
-    H.displayHash();
-    
-    cout << H.searchItem(1) << endl;
+    cout << "Deleting 16" << endl;
+    H.deleteItem(16);
 
-    cout << H.searchItem(3) << endl;
+    H.displayChainedHashing();
+    cout << "Searching for 16: " << H.searchItem(16) << endl;
+
 }
 
 //------------------------------------------------------------------------------
