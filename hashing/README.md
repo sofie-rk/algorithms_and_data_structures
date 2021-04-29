@@ -9,7 +9,7 @@ INSERT(x): add x to S (assuming that x is not already in S)
 
 DELETE(x): remove x from S.
 
-## Dictionary using linked list
+## Linked list
 Maintain (keys of) S in a linked list.
 
 Space: O(n).
@@ -20,7 +20,7 @@ INSERT(x): insert x in the front of the list. O(1).
 
 DELETE(x): remove x from the list. O(1).
 
-## Dictionary using direct accessing
+## Direct accessing
 Maintain S in an array A of size U (size of universe). Stor element x at A[x.key]. 
 
 Space: O(U).
