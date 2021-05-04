@@ -6,9 +6,7 @@
 using namespace std;
 
 #include "searching_algorithms.h"
-#include "two_sum_problem.h"
-#include "three_sum_problem.h"
-#include "maximum_subarray.h"
+#include "searching_problems.h"
 
 
 

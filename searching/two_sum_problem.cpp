@@ -1,5 +1,5 @@
 #include "searching_algorithms.h"
-#include "two_sum_problem.h"
+#include "searching_problems.h"
 
 // PROBLEM
 // Let A[0 ... n-1] be a sorted array and let k be a number. 

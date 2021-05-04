@@ -1,4 +1,4 @@
-#include "maximum_subarray.h"
+#include "searching_problems.h"
 
 #include <iostream>
 #include <limits.h>
