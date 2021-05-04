@@ -18,7 +18,7 @@ using namespace std;
 int main()
 {
 
-	// TESTING LINEAR SEARCH ALGORITHM
+	cout << "\nTESTING LINEAR SEARCH ALGORITHM" << endl;
 	int A[] = {1, 4, 7, 12, 36, 16, 18, 25, 28, 31, 29, 33, 8, 42};
 	int N_A = sizeof(A)/sizeof(A[0]);
 	int x1 = 42;
@@ -27,7 +27,7 @@ int main()
 	cout << linearSearch(A, N_A, x1) << endl;
 	cout << linearSearch(A, N_A, x2) << endl;
 
-	// TESTING LINEAR SEARCH ALGORITHM
+	cout << "\nTESTING BINARY SEARCH ALGORITHM" << endl;
 	int B[] = {1, 2, 5, 8, 10, 33, 56, 78};
 	int N_B = sizeof(B)/sizeof(B[0]);
 	int x3 = 5;
@@ -37,7 +37,7 @@ int main()
 	cout << binarySearch(B, 0, N_B-1, x4) << endl;
 
 	
-	// TESTING TWO-SUM PROBLEM
+	cout << "\nTESTING TWO-SUM PROBLEM" << endl;
 	// Algo with brute force
 	cout << "43: " << twoSumBruteForce(B, N_B, 43) << endl;
 	cout << "4: " << twoSumBruteForce(B, N_B, 4) << endl;
@@ -48,7 +48,7 @@ int main()
 
 	
 	
-	// TESTING THREE-SUM PROBLEM
+	cout << "\nTESTING THREE-SUM PROBLEM" << endl;
 	cout << "20: " << threeSumBruteForce(B, N_B, 20) << endl;
 	cout << "3: " << threeSumBruteForce(B, N_B, 3) << endl;
 
@@ -62,7 +62,7 @@ int main()
 
 
 
-	// TESTING MAXIMAL-SUBARRY PROBLEM
+	cout <<  "\nTESTING MAXIMAL-SUBARRY PROBLEM" << endl;
 	int C[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 	int N_C = sizeof(C)/sizeof(C[0]);
 

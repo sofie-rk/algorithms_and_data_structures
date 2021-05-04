@@ -3,7 +3,7 @@
 Given a sorted array A and number x, determine if x appears in the array.
 
 ## Linear search
-Check if each entry matches x.
+Check if each entry in array A matches x.
 
 Time O(n).
 
