@@ -16,3 +16,29 @@ class StackArray
     void displayStack();
 
 };
+
+void testStackArray();
+
+struct Node
+{
+    int data;
+    Node* next;
+
+};
+
+class StackSinglyLinkedList
+{
+    Node* top;
+    public:
+
+    StackSinglyLinkedList();
+
+    void push(int x);
+    int pop();
+    bool isEmpty();
+
+    void displayStack();
+
+};
+
+void testStackSinglyLinkedList();

@@ -14,8 +14,10 @@ Stack is a "First In Last Out" (FILO) datastructure, where a new element is adde
 
 ![stack illustration](illustrations_stack/illustration.jpg)
 
+PUSH and POP should check for overflow and underflow condition (making sure array doesn't exceed its capacity in PUSH, and doesn't pop any element if array is empty).
 
-## Implementation using array
+
+## Implementation using Array
 
 Maintain array S[0 ... N-1]. Keep track of the top index (top). Initially top = -1.
 
@@ -26,9 +28,17 @@ POP(): return S[top], top = top-1
 ISEMPTY(): return true if top=-1
 
 Running time: O(1) (for each operation)
+
 Space: O(N)
 
-PUSH and POP checks for overflow and underflow condition (making sure array doesn't exceed its capacity in PUSH, and doesn't pop any element if array is empty).
 
-## Stack using linked lists
+## Implementation using Singly Linked List
+
+Keep track of tope node. Initially top = nullptr.
+
+PUSH(x): initialize node N. Make N the top node, and make N point to the previously top node.
+
+POP(): return data of top node, and making the second node to be the top node.
+
+ISEMPTY(): return true if top = nullptr.
 

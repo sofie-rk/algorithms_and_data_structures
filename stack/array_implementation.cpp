@@ -45,3 +45,19 @@ void StackArray::displayStack() {
         cout << endl;
     }
 }
+
+void testStackArray() {
+    StackArray S = StackArray(10);
+	S.displayStack();
+	S.push(3);
+	S.push(4);
+	S.displayStack();
+	S.pop();
+	S.displayStack();
+	S.push(28);
+	S.push(10);
+	S.push(2);
+	S.displayStack();
+	S.pop();
+	S.displayStack();
+}

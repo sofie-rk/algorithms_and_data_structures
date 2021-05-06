@@ -18,73 +18,61 @@ using namespace std;
 // Type of data structure
 // Last in first out (LIFO)
 
-// Linked list node
-struct Node {
-	int key;
-	struct Node* next;
-};
+// Linked list NodeMain
+// struct NodeMain {
+// 	int key;
+// 	struct NodeMain* next;
+// };
 
 
 //------------------------------------------------------------------------------'
 int main()
 {
-	StackArray S = StackArray(10);
-	S.displayStack();
-	S.push(3);
-	S.push(4);
-	S.displayStack();
-	S.pop();
-	S.displayStack();
-	S.push(28);
-	S.push(10);
-	S.push(2);
-	S.displayStack();
-	S.pop();
-	S.displayStack();
+	testStackArray();
+
+	cout << "\n\n";
+
+
+	testStackSinglyLinkedList();
 
 	
 
 
+	// // Algorithm takes in N number of operations N>0
+	// int N;
+	// cin >> N;
 
+	// // Top NodeMain
+	// struct NodeMain* top;
 
-
-
-
-	// Algorithm takes in N number of operations N>0
-	int N;
-	cin >> N;
-
-	// Top node
-	struct Node* top;
-
-	// Go through all of the opaerations
-	for (int i=0; i<N; i++) {
-		string operation;
-		cin >> operation;
+	// // Go through all of the opaerations
+	// for (int i=0; i<N; i++) {
+	// 	string operation;
+	// 	cin >> operation;
 		
-		// PUSH
-		if (operation == "PU") {
-			int value;
-			cin >> value;
+	// 	// PUSH
+	// 	if (operation == "PU") {
+	// 		int value;
+	// 		cin >> value;
 
-			struct Node* node;
-			node = new Node();
+	// 		struct NodeMain* NodeMain;
+	// 		NodeMain = new NodeMain();
 
-			// Initialize node
-			node->key = value;
-			node->next = top;
-			// Make node the top of stack
-			top = node;
-		}
-		// POP
-		else if (operation == "PO") {
+	// 		// Initialize NodeMain
+	// 		NodeMain->key = value;
+	// 		NodeMain->next = top;
+	// 		// Make NodeMain the top of stack
+	// 		top = NodeMain;
+	// 	}
+	// 	// POP
+	// 	else if (operation == "PO") {
 
-			cout << top->key << endl;
+	// 		cout << top->key << endl;
 			
-			// Assign second node to top
-			top = top->next;
-		}
-	}
+	// 		// Assign second NodeMain to top
+	// 		top = top->next;
+	// 	}
+	// }
 }
 
 //------------------------------------------------------------------------------
