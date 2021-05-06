@@ -1,3 +1,7 @@
+#pragma once
+
+#include "queue.h"
+
 
 class StackArray 
 {
@@ -42,3 +46,23 @@ class StackSinglyLinkedList
 };
 
 void testStackSinglyLinkedList();
+
+class StackTwoQueues
+{
+    Queue* Q1;
+    Queue* Q2;
+    int currentSize;
+
+    public:
+
+    StackTwoQueues();
+
+    void push(int x);
+    int pop();
+    bool isEmpty();
+
+    void displayStack();
+
+};
+
+void testStackTwoQueue();

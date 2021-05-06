@@ -42,3 +42,43 @@ POP(): return data of top node, and making the second node to be the top node.
 
 ISEMPTY(): return true if top = nullptr.
 
+## Implementation using two queues
+Let the stack be S, and the two queues Q1 and Q2.
+
+A queue has the following operations:
+
+ENQUEUE(x): add x to Q.
+
+DEQUEUE(): return and remove the first added element to Q.
+
+ISEMPTY(): return true if Q is empty.
+
+
+### Method 1
+
+
+**PUSH(x):**
+
+Enqueue x to Q2.
+
+One by one, dequeue everything from Q1 and enqueue to Q2.
+
+Swap the names of Q1 and Q2.
+
+Example:
+![push2](illustrations_stack/push2_two_queues.jpg)
+
+If we want to push 1 to the stack S, it will look like this:
+![push1](illustrations_stack/push1_two_queues.jpg)
+
+**POP():**
+
+Dequeue an item from Q1 and return it.
+
+
+From the example above, to pop an element will be like this:
+![push2](illustrations_stack/pop_two_queues.jpg)
+
+
+
+
