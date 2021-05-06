@@ -1,5 +1,6 @@
 #include "stack.h"
 
+#include <climits>
 #include <iostream>
 using namespace std;
 
@@ -19,25 +20,23 @@ void StackSinglyLinkedList::push(int x) {
 int StackSinglyLinkedList::pop() {
     if (isEmpty()) {
         std::cout << "Stack underflow\n";
-        return 0;
-    } else {
-        Node* temp = top;
-        // Assign second node to top
-        top = top->next;
+        return INT_MIN;
+    } 
+    Node* temp = top;
+    // Assign second node to top
+    top = top->next;
 
-        return temp->data;
-    }  
+    return temp->data;  
 }
 
 bool StackSinglyLinkedList::isEmpty() {
-    if (top == nullptr) {return true;}
-    else {return false;}
+    return (top == nullptr);
 }
 
 void StackSinglyLinkedList::displayStack() {
-    if (isEmpty()) {
-        cout << "Stack is empty\n";
-    } else {
+    if (isEmpty()) {cout << "Stack is empty\n";} 
+    
+    else {
         Node* N = top;
         while (N!=nullptr) {
             cout << N->data << " ";
@@ -48,6 +47,9 @@ void StackSinglyLinkedList::displayStack() {
 }
 
 void testStackSinglyLinkedList() {
+
+    cout << "\n\n";
+
     StackSinglyLinkedList S = StackSinglyLinkedList();
     S.displayStack();
 	S.push(3);

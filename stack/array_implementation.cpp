@@ -14,10 +14,8 @@ StackArray::StackArray(int N) {
 void StackArray::push(int x) {
     if (top>=(N-1)) {cout << "Stack overflow\n"; return;}
     
-    else{
-        S[top+1] = x;
-        top++;
-    }
+    S[top+1] = x;
+    top++;
     
 }
 
@@ -31,8 +29,7 @@ int StackArray::pop() {
 
 
 bool StackArray::isEmpty() {
-    if (top == -1) {return true;}
-    else {return false;}
+    return (top == -1);
 }
 
 void StackArray::displayStack() {
