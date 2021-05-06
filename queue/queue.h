@@ -18,3 +18,28 @@ class QueueArray
 };
 
 void testQueueArray();
+
+struct Node 
+{
+    int data;
+    Node* next;
+
+};
+
+class QueueLinkedList 
+{
+    Node* head;
+    Node* tail;
+
+    public:
+    QueueLinkedList();
+
+    void enqueue(int x);
+    int dequeue();
+    bool isEmpty();
+
+    void displayQueue();
+
+};
+
+void testQueueLinkedList();

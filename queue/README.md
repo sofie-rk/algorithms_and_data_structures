@@ -31,3 +31,14 @@ Space: O(N).
 Disadvantage: capacity must be known. Also, initializing an array of size N might be waste of space.
 
 ![array example](illustrations_queue/queue_array.jpg)
+
+## Implementation using Linked List
+Keep track of head and tail node. 
+
+ENQUEUE(x): if it is the first node, make the head and tail this node. Else, make the current tail point to the new node. Make the new node the tail.
+
+DEQUEUE(): Return head.data. Make the head the node head is pointing to. 
+
+ISEMPTY(): return true if head == NULL.
+
+![queue_linked_list](illustrations_queue/queue_linked_list.jpg)
