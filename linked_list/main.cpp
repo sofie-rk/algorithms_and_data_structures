@@ -1,9 +1,10 @@
-
+#include "singly_linked_list.h"
 
 //------------------------------------------------------------------------------'
 
 int main()
 {
+	testSinglyLinkedList();
 	
 }
 
