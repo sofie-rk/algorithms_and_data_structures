@@ -31,6 +31,8 @@ Running time: O(1) (for each operation)
 
 Space: O(N)
 
+![array_illustration](illustrations_stack/array_stack.jpg)
+
 
 ## Implementation using Singly Linked List
 
@@ -41,6 +43,8 @@ PUSH(x): initialize node N. Make N the top node, and make N point to the previou
 POP(): return data of top node, and making the second node to be the top node.
 
 ISEMPTY(): return true if top = nullptr.
+
+![linked_list_illustration](illustrations_stack/linked_list_stack.jpg)
 
 ## Implementation using two queues
 Let the stack be S, and the two queues Q1 and Q2.
