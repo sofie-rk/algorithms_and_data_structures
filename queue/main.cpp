@@ -1,3 +1,5 @@
+#include "queue.h"
+
 #include "iostream"
 using namespace std;
 
@@ -21,56 +23,58 @@ using namespace std;
 // deQueue(): remove front node and moves head to the next node
 
 // Linked list node
-struct Node {
-	int key;
-	struct Node* next;
-};
+// struct Node {
+// 	int key;
+// 	struct Node* next;
+// };
  
 //------------------------------------------------------------------------------'
 int main()
 {
 
-	int N;
-	cin >> N;
+	testQueueArray();
 
-	// Create head and tail node
-	struct Node* head;
-	struct Node* tail;
+	// int N;
+	// cin >> N;
 
-	for (int i=0; i<N; i++) {
-		string operation;
-		cin >> operation;
+	// // Create head and tail node
+	// struct Node* head;
+	// struct Node* tail;
 
-		// ENQUEUE
-		if (operation == "E") {
-			int value;
-			cin >> value;
+	// for (int i=0; i<N; i++) {
+	// 	string operation;
+	// 	cin >> operation;
 
-			Node* node = new Node();
+	// 	// ENQUEUE
+	// 	if (operation == "E") {
+	// 		int value;
+	// 		cin >> value;
 
-			// Add new node at the end of queue
-			node->key = value;
-			node->next = NULL;
+	// 		Node* node = new Node();
 
-			if (tail != NULL) {
-				tail->next = node;
-			}
-			if (head == NULL) {
-				head = node;
-			}
-			// Change tail of the queue
-			tail = node;
-		}
+	// 		// Add new node at the end of queue
+	// 		node->key = value;
+	// 		node->next = NULL;
 
-		// DEQUEUE
-		else if (operation == "D") {
-			// print out element that is dequeued
-			cout << head->key << endl;
+	// 		if (tail != NULL) {
+	// 			tail->next = node;
+	// 		}
+	// 		if (head == NULL) {
+	// 			head = node;
+	// 		}
+	// 		// Change tail of the queue
+	// 		tail = node;
+	// 	}
 
-			// Move head one node ahead
-			head = head->next;
-		}
-	}
+	// 	// DEQUEUE
+	// 	else if (operation == "D") {
+	// 		// print out element that is dequeued
+	// 		cout << head->key << endl;
+
+	// 		// Move head one node ahead
+	// 		head = head->next;
+	// 	}
+	// }
 
 
 }
