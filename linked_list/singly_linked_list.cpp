@@ -2,12 +2,10 @@
 
 #include <iostream>
 
-using namespace std;
-
 void printSinglyLinkedList(SinglyNode* N) {
 
     while (N != nullptr) {
-        cout << N->data << " ";
+        std::cout << N->data << " ";
         N = N->next;
 
     } 
