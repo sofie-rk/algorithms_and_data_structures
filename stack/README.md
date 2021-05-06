@@ -25,5 +25,10 @@ POP(): return S[top], top = top-1
 
 ISEMPTY(): return true if top=-1
 
-PUSH and POP checks for overflow and underflow condition (making sure array doesnt exceed its capacity in PUSH, and doesnt pop any element if array is empty).
+Running time: O(1) (for each operation)
+Space: O(N)
+
+PUSH and POP checks for overflow and underflow condition (making sure array doesn't exceed its capacity in PUSH, and doesn't pop any element if array is empty).
+
+## Stack using linked lists
 
