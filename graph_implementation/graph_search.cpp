@@ -1,4 +1,5 @@
 #include "graph.h"
+#include <queue>
 
 void Graph::DFSVisit(int v, bool visited[]) {
 	// The current node is marked as visited and printed
@@ -14,8 +15,6 @@ void Graph::DFSVisit(int v, bool visited[]) {
 			DFSVisit(*i, visited);
 		}
 	}
-
-
 }
 
 void Graph::DFS(int v) {
@@ -41,18 +40,18 @@ void Graph::BFS(int v) {
 	for (int i=0; i<N; i++){visited[i]=false;}
 
 	// Create a queue Q
-	list<int> Q;
+	queue<int> Q;
 
 	// Mark current node as visited, and Q.enqueue(s)
 	visited[v] = true;
-	Q.push_back(v);
+	Q.push(v);
 
 	// While the queue is not empty:
 	while (!Q.empty()) {
 		// Print first node in queue, and dequeue it
 		v = Q.front();
 		cout << v << " ";
-		Q.pop_front();
+		Q.pop();
 
 		// Enqueue all adjacent nodes of node s that is not visited
 		// Access neighbours of node s using the adjacency matrix adj[s]
@@ -60,7 +59,7 @@ void Graph::BFS(int v) {
 		for (i = adj[v].begin(); i!=adj[v].end(); ++i) {
 			if (!visited[*i]) {
 				visited[*i] = true;
-				Q.push_back(*i);
+				Q.push(*i);
 			}
 		}
 	}
