@@ -26,4 +26,7 @@ class Graph {
 	bool isCyclic();
 
 	void connectedComponents();
+
+	// Other
+	bool isBipartite();
 };

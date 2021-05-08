@@ -59,3 +59,14 @@ Each vertex in the graph is either visited or not visited.
 ![BFS_illustration](Illustrations_graph/BFS_illustration.jpg)
 
 With adjacency list representation, the running time is O(N+M). All N nodes are visited. All neighbors of N are visisted, so all M edges must be traversed.
+
+## Bipartite graph
+A graph is bipartite if its vertices can be divided into two sets V1 and V2 such that all edges go between V1 and V2.
+
+![bipartite_illustration](Illustrations_graph/bipartite_graph.jpg)
+
+A graph G is bipartite if and only if all cycles in G have even length. Proof: if g is bipartite, all cycles must start and end on the same "side". Since there can be no edges between vertices on the same side, the edges must go  back and forth, which gives a cycle of even length.
+
+To check is a graph is bipartite, run BFS on G. For each edge in G, check if its endpoints are in the same layer. If the end points are in different layers, the graph is bipartite. Running time: O(N+M) (BFS running time).
+
+![BFS_partite](Illustrations_graph/bipartite_BFS.jpg)
