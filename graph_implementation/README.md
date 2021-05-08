@@ -44,7 +44,7 @@ With adjacency list representation, the running time is O(N+M). All N nodes are 
 
 Space Complexity: O(N) (extra array to store visisted vertices is needed).
 ## Breadth-first search (BFS)
-Systematically visits all vertices in a graph. BFS finds the shortest path from s to all other vertices.
+Systematically visits all vertices in a graph. BFS finds the shortest path from s to all other vertices. The vertices are visited "Breadth-wise".
 
 The algorithm:
 
@@ -55,3 +55,7 @@ Each vertex in the graph is either visited or not visited.
     v = Q.DEQUEUE()
     
     For each unmarked neighbour u of v: mark u and Q.ENQUEUE(u)
+
+![BFS_illustration](Illustrations_graph/BFS_illustration.jpg)
+
+With adjacency list representation, the running time is O(N+M). All N nodes are visited. All neighbors of N are visisted, so all M edges must be traversed.

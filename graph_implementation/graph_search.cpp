@@ -44,7 +44,7 @@ void Graph::BFS(int v) {
 	list<int> Q;
 
 	// Mark current node as visited, and Q.enqueue(s)
-	visited[N] = true;
+	visited[v] = true;
 	Q.push_back(v);
 
 	// While the queue is not empty:

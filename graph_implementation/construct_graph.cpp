@@ -52,9 +52,9 @@ void testGraph1() {
 	
 }
 
-void DFSillustration() {
+void searchIllustration() {
 
-    cout << "\n\nDFS illustration\n"; 
+    cout << "\n\nSEARCH ILLUSTRATIONS\n"; 
     Graph G = Graph(7);
 
     G.addEdge(0,1);
@@ -75,6 +75,9 @@ void DFSillustration() {
     G.addEdge(3,5);
     G.addEdge(5,3);
 
+    G.printAdjList();
+
     G.DFS(0);
+    G.BFS(0);
 
 }

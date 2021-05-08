@@ -7,9 +7,9 @@
 int main()
 {
 
-	testGraph1();
+	//testGraph1();
 
-	DFSillustration();
+	searchIllustration();
 	
 	// Create a graph with 7 vertices (from 0 to 6)
 	Graph G2(7);

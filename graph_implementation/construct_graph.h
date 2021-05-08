@@ -1,3 +1,3 @@
 void testGraph1();
 
-void DFSillustration();
+void searchIllustration();
