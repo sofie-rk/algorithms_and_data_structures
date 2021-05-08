@@ -24,8 +24,8 @@ void Graph::DFS(int v) {
     cout << "\n\n...DEPTH FIRST SEARCH OF THE GRAPH...\n";
 
 	// Mark all vertcies as not visisted
-	bool* visited = new bool[V];
-	for (int i=0; i<V; i++) {visited[i] = false;}
+	bool* visited = new bool[N];
+	for (int i=0; i<N; i++) {visited[i] = false;}
 
 	// Recurisvely call DFS-visit
 	DFSVisit(v, visited);
@@ -37,14 +37,14 @@ void Graph::BFS(int v) {
     cout << "\n\n,,,BREADTH-FIRST SEARCH ON THE GRAPH,,,\n";
 	
 	// Mark all vertices as not visited
-	bool* visited = new bool[V];
-	for (int i=0; i<V; i++){visited[i]=false;}
+	bool* visited = new bool[N];
+	for (int i=0; i<N; i++){visited[i]=false;}
 
 	// Create a queue Q
 	list<int> Q;
 
 	// Mark current node as visited, and Q.enqueue(s)
-	visited[V] = true;
+	visited[N] = true;
 	Q.push_back(v);
 
 	// While the queue is not empty:

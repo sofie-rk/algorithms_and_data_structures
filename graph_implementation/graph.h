@@ -6,11 +6,11 @@
 using namespace std;
 
 class Graph {
-	int V;			// number of vertices in the graph
-	list<int>*adj;	// adjacency list
+	int N;			// number of vertices in the graph
+	list<int>* adj;		// adjacency list
 
 	public:
-	Graph(int V);
+	Graph(int N);
 	
 	// Utility functions for the graph
 	void addEdge(int v, int u);
@@ -26,7 +26,4 @@ class Graph {
 	bool isCyclic();
 
 	void connectedComponents();
-
-
-
 };

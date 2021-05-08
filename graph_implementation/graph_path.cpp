@@ -12,16 +12,16 @@ bool Graph::isCyclic() {
 
 
     // Mark all vertices as not visited
-    bool* visited = new bool[V];
-    for (int i=0; i<V; i++) {visited[i]=false;}
+    bool* visited = new bool[N];
+    for (int i=0; i<N; i++) {visited[i]=false;}
     // Mark all vertcies as not parent
-    bool* parentStack = new bool[V];
-    for (int i=0; i<V; i++) {parentStack[i]=false;}
+    bool* parentStack = new bool[N];
+    for (int i=0; i<N; i++) {parentStack[i]=false;}
 
     
     // Start from first node, and recursively
     // call helper function
-    for (int v=0; v<V; v++) {
+    for (int v=0; v<N; v++) {
         // If vertex is not visited, visit
         if (!visited[v]) {
             if (isCyclicVisit(v, visited, parentStack)) {
@@ -70,11 +70,11 @@ void Graph::connectedComponents() {
     cout << "\n--- CONNECTED COMPONENTS IN THIS GRAPH ---\n";
 
     // Mark all nodes as not visited
-    bool* visited = new bool[V];
-    for (int i=0; i<V; i++) {visited[i] = false;}
+    bool* visited = new bool[N];
+    for (int i=0; i<N; i++) {visited[i] = false;}
 
     // Use DFS search to visit all possible nodes from v
-    for (int v=0; v<V; v++) {
+    for (int v=0; v<N; v++) {
         if (visited[v] == false) {
             DFSVisit(v, visited);
             cout << "\n";
