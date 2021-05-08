@@ -51,3 +51,30 @@ void testGraph1() {
 	else {cout << "\nG1 is not cyclic\n";}
 	
 }
+
+void DFSillustration() {
+
+    cout << "\n\nDFS illustration\n"; 
+    Graph G = Graph(7);
+
+    G.addEdge(0,1);
+    G.addEdge(1,0);
+    G.addEdge(0,2);
+    G.addEdge(2,0);
+
+    G.addEdge(1,3);
+    G.addEdge(3,1);
+    G.addEdge(1,4);
+    G.addEdge(4,1);
+    G.addEdge(1,6);
+    G.addEdge(6,1);
+
+    G.addEdge(2,6);
+    G.addEdge(6,2);
+
+    G.addEdge(3,5);
+    G.addEdge(5,3);
+
+    G.DFS(0);
+
+}

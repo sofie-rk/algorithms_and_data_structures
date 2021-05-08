@@ -37,6 +37,12 @@ Systematically visits all vertices  in a graph. The nodes are visited "depth-wis
 
 Start at a root node. Visit adjacent vertex v. Mark v, and visit all unmarked neighbours of v recursively. Go back to previous vertex when all adjacent vertices are visited.
 
+
+![DFS_illustration](Illustrations_graph/DFS_illustration.jpg)
+
+With adjacency list representation, the running time is O(N+M). All N nodes are visited. All neighbors of N are visited, in so all edges are traversed (M).
+
+Space Complexity: O(N) (extra array to store visisted vertices is needed).
 ## Breadth-first search (BFS)
 Systematically visits all vertices in a graph. BFS finds the shortest path from s to all other vertices.
 
