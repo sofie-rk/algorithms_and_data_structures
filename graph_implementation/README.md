@@ -32,7 +32,7 @@ Sequence of vertices connected by edges.
 ## Cycle
 Path starting and ending at the same vertex.
 
-DFS can be used to detect if there is a cycle in graph G. Visit all adjacent vertices of the current vertex. If adjacent vertex is already visisted and is not the parent of the current vertex, there is a cycle. An array must be made to maintain the parent vertex of each vertex.
+DFS can be used to detect if there is a cycle in graph G. Visit all adjacent vertices of the current vertex. If adjacent vertex is already visisted and is not the parent of the current vertex, there is a cycle. 
 
 
 ## Depth-first search (DFS)
@@ -46,6 +46,8 @@ Start at a root node. Visit adjacent vertex v. Mark v, and visit all unmarked ne
 With adjacency list representation, the running time is O(N+M). All N nodes are visited. All neighbors of N are visited, in so all edges are traversed (M).
 
 Space Complexity: O(N) (extra array to store visisted vertices is needed).
+
+
 ## Breadth-first search (BFS)
 Systematically visits all vertices in a graph. BFS finds the shortest path from s to all other vertices. The vertices are visited "Breadth-wise".
 
@@ -73,3 +75,10 @@ A graph G is bipartite if and only if all cycles in G have even length. Proof: i
 To check is a graph is bipartite, run BFS on G. For each edge in G, check if its endpoints are in the same layer. If the end points are in different layers, the graph is bipartite. Running time: O(N+M) (BFS running time).
 
 ![BFS_partite](Illustrations_graph/bipartite_BFS.jpg)
+
+## Connected components
+A connected component is a maximal subset of connected vertices.
+
+Algorithm: unmark all vertices. While there is an unmarked vertex: chose an unmarked vertex v, run DFS from v.
+
+Running time: O(N+M) (DFS running time)

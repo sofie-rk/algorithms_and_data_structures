@@ -149,3 +149,16 @@ void cyclicCheck() {
     G1.isCyclic();
     G2.isCyclic();
 }
+
+void connectedComponentsCheck() {
+
+    cout << "\n\nTesting connected components function: \n";
+    Graph G4(5);
+	G4.addEdge(0,3);
+	G4.addEdge(3,0);
+	G4.addEdge(1,2);
+	G4.addEdge(2,4);
+	G4.addEdge(4,1);
+
+	G4.connectedComponents();
+}

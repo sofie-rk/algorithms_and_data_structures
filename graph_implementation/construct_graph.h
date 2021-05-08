@@ -5,3 +5,5 @@ void searchIllustration();
 void bipartiteCheck();
 
 void cyclicCheck();
+
+void connectedComponentsCheck();
