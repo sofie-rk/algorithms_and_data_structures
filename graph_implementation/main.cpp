@@ -12,35 +12,16 @@ int main()
 	searchIllustration();
 
 	bipartiteCheck();
+
+	cyclicCheck();
 	
-	// Create a graph with 7 vertices (from 0 to 6)
-	Graph G2(7);
-
-	// Add edges bewteen the vertices in G2
-	// This is graph 2 (attached picture), which is a directed graph
-	G2.addEdge(0,2);
-	G2.addEdge(0,3);
-	G2.addEdge(0,5);
-
-	G2.addEdge(2,1);
-
-	G2.addEdge(3,1);
-	G2.addEdge(3,5);
 	
-	G2.addEdge(4,0);
-	G2.addEdge(4,1);
-	G2.addEdge(4,6);
-
-	G2.addEdge(6,1);
-	G2.addEdge(6,3);
-	G2.addEdge(6,5);
-
-	cout << "\n\n";
-	G2.printAdjList();
-	G2.DFS(4);
-	G2.BFS(4);
-	if (G2.isCyclic()){cout << "\nG2 is cyclic\n";}
-	else {cout << "\nG2 is not cyclic\n";}
+	// cout << "\n\n";
+	// G2.printAdjList();
+	// G2.DFS(4);
+	// G2.BFS(4);
+	// if (G2.isCyclic()){cout << "\nG2 is cyclic\n";}
+	// else {cout << "\nG2 is not cyclic\n";}
 
 	Graph G3(6);
 	G3.addEdge(0,1);

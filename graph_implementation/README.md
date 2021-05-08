@@ -32,6 +32,9 @@ Sequence of vertices connected by edges.
 ## Cycle
 Path starting and ending at the same vertex.
 
+DFS can be used to detect if there is a cycle in graph G. Visit all adjacent vertices of the current vertex. If adjacent vertex is already visisted and is not the parent of the current vertex, there is a cycle. An array must be made to maintain the parent vertex of each vertex.
+
+
 ## Depth-first search (DFS)
 Systematically visits all vertices  in a graph. The nodes are visited "depth-wise".
 
@@ -65,7 +68,7 @@ A graph is bipartite if its vertices can be divided into two sets V1 and V2 such
 
 ![bipartite_illustration](Illustrations_graph/bipartite_graph.jpg)
 
-A graph G is bipartite if and only if all cycles in G have even length. Proof: if g is bipartite, all cycles must start and end on the same "side". Since there can be no edges between vertices on the same side, the edges must go  back and forth, which gives a cycle of even length.
+A graph G is bipartite if and only if all cycles in G have even length. Proof: if G is bipartite, all cycles must start and end on the same "side". Since there can be no edges between vertices on the same side, the edges must go  back and forth, which gives a cycle of even length.
 
 To check is a graph is bipartite, run BFS on G. For each edge in G, check if its endpoints are in the same layer. If the end points are in different layers, the graph is bipartite. Running time: O(N+M) (BFS running time).
 
