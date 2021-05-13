@@ -53,14 +53,33 @@ Starting at the root:
 
 ### Tree traversals
 
-**Inorder traversal**
+Inorder, preorder and postorder traversal traverses the binary search tree differently. As all of the methods visists all n vertices, the running time is O(n).
+
+**Inorder traversal (LEFT, VERTEX, RIGHT)**
+
 Visit left subtree recursively.
 
 Visit vertex.
 
 Visit right subtree recursively.
 
-(LEFT, ROOT, RIGHT)
-
 
 Inorder traversal prints out the vertices in a binary search tree in sorted order.
+
+**Preorder traversal (VERTEX, LEFT, RIGHT)**
+
+Visit vertex.
+
+Visit left subtree recursively.
+
+Visit right subtree recursively.
+
+**Postorder traversal (LEFT, RIGHT, VERTEX)**
+
+Visit left subtree recursively.
+
+Visit right subtree recursively.
+
+Visit vertex.
+
+

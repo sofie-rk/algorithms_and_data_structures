@@ -47,6 +47,13 @@ void testBST() {
     B.insert(root, 11);
     B.insert(root, 13);
 
+    cout << "\nInorder tree traversal:\n";
     B.inorder(root);
+
+    cout << "\nPreorder tree traversal:\n";
+    B.preorder(root);
+
+    cout << "\nPostorder tree traversal:\n";
+    B.postorder(root);
 
 }

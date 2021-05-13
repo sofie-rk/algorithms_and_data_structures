@@ -20,6 +20,8 @@ class BinarySearchTree
     BinarySearchTree* insert(BinarySearchTree*, int);
 
     void inorder(BinarySearchTree*);
+    void preorder(BinarySearchTree*);
+    void postorder(BinarySearchTree*);
 
 };
 
