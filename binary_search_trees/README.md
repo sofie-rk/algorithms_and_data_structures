@@ -19,7 +19,7 @@ Given a dynamic set S. Each element x in S has s key x.key and satellite data x.
 
 
 
-### Insertion
+## Insertion
 INSERT(x): add x to tree T. A new key is always inserted at the leaf. Start searching a key from the root until a leaf is reached, then add the new node as a child of the leaf node.
 
 Start in root. At vertex v:
@@ -30,30 +30,34 @@ If x.key > v.key: go right.
 
 If x.key = null: insert x.
 
-### Predecessor and successor
+The time complexity of insertion is O(h), where h is the height of the tree.
+
+## Predecessor and successor
 PREDECESSOR(k): return element with largest key <= k.
 
 SUCCESSOR(k): return element with smallet key >= k.
 
 
-### Deletion
+## Deletion
 
 DELETE(x): remove x from S.
 
-### Search
+## Search
 
 Search for x.key
 
 Starting at the root:
 
-1. If x.key is less than root, recurse for left. Else recurse for right.
+1. If x.key is less than root, serach for x.key in the left subtree recursively. Else, search for x.key in the right subtree recursively.
 
 2. If the element to search is found, return true. Else return false.
 
 
-### Tree traversals
+## Tree traversals
 
 Inorder, preorder and postorder traversal traverses the binary search tree differently. As all of the methods visists all n vertices, the running time is O(n).
+
+![tree_traversal](images_binary_search_tree/tree_traversal.jpg)
 
 **Inorder traversal (LEFT, VERTEX, RIGHT)**
 

@@ -19,6 +19,8 @@ class BinarySearchTree
 
     BinarySearchTree* insert(BinarySearchTree*, int);
 
+    bool search(BinarySearchTree*, int);
+
     void inorder(BinarySearchTree*);
     void preorder(BinarySearchTree*);
     void postorder(BinarySearchTree*);

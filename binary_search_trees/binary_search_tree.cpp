@@ -34,6 +34,18 @@ BinarySearchTree* BinarySearchTree::insert(BinarySearchTree* root, int data) {
     return root;
 }
 
+bool BinarySearchTree::search(BinarySearchTree* root, int x) {
+    if (!root) {return false;}
+
+    if (root->data == x) {
+        return true;
+    }
+    if (root->data < x) {
+        return search(root->rightSubTree, x);
+    }
+    return search(root->leftSubTree, x);
+}
+
 
 void testBST() {
     BinarySearchTree B, *root = nullptr;
@@ -56,4 +68,11 @@ void testBST() {
     cout << "\nPostorder tree traversal:\n";
     B.postorder(root);
 
+    cout << "\nSearching for 25: \n";
+    if (B.search(root, 25)) {cout << "Found 25\n";}
+    else {cout << "Didnt find 25\n";}
+
+    cout << "\nSearching for 13: \n";
+    if (B.search(root, 13)) {cout << "Found 13\n";}
+    else {cout << "Didnt find 13\n";}
 }
