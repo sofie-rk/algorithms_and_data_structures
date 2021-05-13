@@ -19,6 +19,7 @@ class WeightedGraph
 
     // Minimum spanning tree algorithms
     void primMST(int src);
+    void kruskalMST(int src);
 
 };
 
