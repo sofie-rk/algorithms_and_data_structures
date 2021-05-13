@@ -33,16 +33,38 @@ If x.key = null: insert x.
 The time complexity of insertion is O(h), where h is the height of the tree.
 
 ## Predecessor and successor
-PREDECESSOR(k): return element with largest key <= k.
+PREDECESSOR(x): return element with largest key <= x.key.
 
-SUCCESSOR(k): return element with smallet key >= k.
+Start in root. At vertex v:
+
+If v == null: return null
+
+If k == v.key: return v
+
+If k < v.key: go left
+
+If k > v.key: search in right subtree. If element with key<=k in right subtree, return x. Else, return v.
+
+Time complexity: O(h), where h is the height of the tree.
+
+SUCCESSOR(x): return element with smallet key >= x.key.
 
 
 ## Deletion
 
 DELETE(x): remove x from S.
 
+When deleting a vertex, there are 3 possible cases.
+
+1. 0 children (x is a leaf): remove x.
+
+2. 1 child: copy the child to the node, and delete the child.
+
+3. 2 children: find inorder successor of the node. Copy contents of the successor to the node and delete the inorder successor.
+
 ## Search
+
+SEARCH(k): determine if element with key k is in S.
 
 Search for x.key
 
@@ -87,3 +109,6 @@ Visit right subtree recursively.
 Visit vertex.
 
 
+## Size of a tree
+
+## Minimum and maximum in a Binary Search Tree

@@ -75,4 +75,5 @@ void testBST() {
     cout << "\nSearching for 13: \n";
     if (B.search(root, 13)) {cout << "Found 13\n";}
     else {cout << "Didnt find 13\n";}
+
 }

@@ -18,12 +18,15 @@ class BinarySearchTree
     BinarySearchTree(int);
 
     BinarySearchTree* insert(BinarySearchTree*, int);
+    BinarySearchTree* deleteVertex(BinarySearchTree*, int);
 
     bool search(BinarySearchTree*, int);
 
     void inorder(BinarySearchTree*);
     void preorder(BinarySearchTree*);
     void postorder(BinarySearchTree*);
+
+    BinarySearchTree* predecessor(BinarySearchTree*, int);
 
 };
 
