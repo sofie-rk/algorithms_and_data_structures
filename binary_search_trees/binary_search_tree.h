@@ -8,12 +8,12 @@ using namespace std;
 
 class BinarySearchTree 
 {
+    public:
+
     int data; 
     BinarySearchTree* leftSubTree;
     BinarySearchTree* rightSubTree;
-    
 
-    public:
     BinarySearchTree();
     BinarySearchTree(int);
 
@@ -28,6 +28,13 @@ class BinarySearchTree
 
     BinarySearchTree* predecessor(BinarySearchTree*, int);
 
+    // BinarySearchTree* getLeft(){return leftSubTree;}
+    // BinarySearchTree* getRight(){return rightSubTree;}
+    // int getData(){return data;}
+
 };
 
 void testBST();
+
+BinarySearchTree* sortedArrayToBST(int arr[], int i, int j);
+void testSortedArrayToBST();

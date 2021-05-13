@@ -112,3 +112,15 @@ Visit vertex.
 ## Size of a tree
 
 ## Minimum and maximum in a Binary Search Tree
+
+## Sorted array to balanced binary search tree
+Given a sorted array, make a balanced binary search tree.
+
+1. Get the middle element of the array, and make it the root.
+2. Recursively do the same for left half and right half.
+
+    i) Get the middle element of the left half, and make it the left child of the root created in step 1.
+
+    ii) Get the middle element of the right half, and make it the right child of the root created in step 1.
+
+![sorted_to_BST](images_binary_search_tree/sorted_array_to_BST.jpg)

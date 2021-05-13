@@ -4,7 +4,9 @@
 
 int main()
 {
-	testBST();
+	//testBST();
+
+	testSortedArrayToBST();
 
 }
 
