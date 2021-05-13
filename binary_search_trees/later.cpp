@@ -38,3 +38,28 @@ BinarySearchTree* BinarySearchTree::predecessor(BinarySearchTree* root, int k) {
 
     return root;
 }
+
+
+
+BinarySearchTree* preorderToBST(int A[], int size) {
+    int preIndex = 0;
+
+    return constructTreeUtility(A, preIndex, A[0], INT_MIN, INT_MAX, size);
+}
+
+BinarySearchTree* constructTreeUtility(int A[], int* preIndex, int key, int min, int max, int size){
+    
+    if (*preIndex >= size) {
+        return nullptr;
+    }
+
+    BinarySearchTree* root = nullptr;
+
+    if (key > min && key < max) {
+        root = BinarySearchTree(key);
+
+        *preIndex = *preIndex + 1;
+    }
+
+    return nullptr;
+}

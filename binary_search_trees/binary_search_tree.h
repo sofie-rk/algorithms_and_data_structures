@@ -36,5 +36,8 @@ class BinarySearchTree
 
 void testBST();
 
-BinarySearchTree* sortedArrayToBST(int arr[], int i, int j);
+BinarySearchTree* sortedArrayToBST(int A[], int i, int j);
 void testSortedArrayToBST();
+
+BinarySearchTree* preorderToBST(int A[]);
+BinarySearchTree* constructTreeUtility(int A[], int* preIndex, int key, int min, int max, int size);
