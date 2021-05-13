@@ -1,5 +1,4 @@
 #pragma once
-#include "node.h"
 
 #include <vector>
 
@@ -9,14 +8,19 @@ using namespace std;
 
 class BinarySearchTree 
 {
-    Node *root;
-    vector<Node*> nodes;
+    int data; 
+    BinarySearchTree* leftSubTree;
+    BinarySearchTree* rightSubTree;
+    
 
     public:
     BinarySearchTree();
+    BinarySearchTree(int);
 
-    void insert(Node* node);
+    BinarySearchTree* insert(BinarySearchTree*, int);
 
-    void printBSTInfo();
+    void inorder(BinarySearchTree*);
 
 };
+
+void testBST();

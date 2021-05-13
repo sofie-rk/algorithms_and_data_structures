@@ -82,3 +82,11 @@ A connected component is a maximal subset of connected vertices.
 Algorithm: unmark all vertices. While there is an unmarked vertex: chose an unmarked vertex v, run DFS from v.
 
 Running time: O(N+M) (DFS running time)
+
+![connected_components](Illustrations_graph/connected_components.jpg)
+
+## Euler tour
+An Euler tour in G is a cycle that contains all edges in G exactly once.
+
+## Euler path
+An Euler path in G is a path that contains all edges in G exactly once.

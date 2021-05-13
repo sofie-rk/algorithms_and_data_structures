@@ -1,45 +1,52 @@
 #include "binary_search_tree.h"
 
 #include <iostream>
-
-
 using namespace std;
 
 
 
-BinarySearchTree::BinarySearchTree() : root(nullptr){}
+BinarySearchTree::BinarySearchTree() : 
+    data(0),
+    leftSubTree(nullptr),
+    rightSubTree(nullptr)
+{}
 
-void BinarySearchTree::insert(Node* node) {
+BinarySearchTree::BinarySearchTree(int value) :
+    data(value),
+    leftSubTree(nullptr),
+    rightSubTree(nullptr)
+{}
+
+
+BinarySearchTree* BinarySearchTree::insert(BinarySearchTree* root, int data) {
     
-    // If root is NULL, insert the first node
+    // If root is null, insert the node here
     if (!root) {
-        root = node;
-        nodes.push_back(node);
-    } else {
-
-        while() {
-            
-        }
-
-        if (node->key > root->key) {
-            insert(root->right);
-        } else {
-            insert(root->left);
-        }
-        // return root after insertion
-        return root;
-        
+        return new BinarySearchTree(data);
     }
+
+    if (data > root->data){
+        root->rightSubTree = insert(root->rightSubTree, data);
+    } else {
+        root->leftSubTree = insert(root->leftSubTree, data);
+    }
+
+    return root;
 }
 
-void BinarySearchTree::printBSTInfo() {
 
-    if (root){
-        cout << "Root: " << root->key << endl;
-    } else {
-        cout << "Empty BST" << endl;
-    }
+void testBST() {
+    BinarySearchTree B, *root = nullptr;
+   
+    root = B.insert(root, 15); // first node is the root
+    B.insert(root, 8);
+    B.insert(root, 20);
+    B.insert(root, 1);
+    B.insert(root, 14);
+    B.insert(root, 3);
+    B.insert(root, 11);
+    B.insert(root, 13);
 
-    
-    
+    B.inorder(root);
+
 }
