@@ -7,7 +7,7 @@ class WeightedGraph
 {
     int V;  // number of vertices in the graph
 
-    // Using vector of pair vectors
+    // Using list of pairs for the adjacency list
     list<pair<int,int>>* adj;
 
     public:
@@ -21,3 +21,5 @@ class WeightedGraph
     void primMST(int src);
 
 };
+
+void testWeightedGraph1();
