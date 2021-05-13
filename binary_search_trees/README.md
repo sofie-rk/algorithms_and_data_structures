@@ -124,3 +124,16 @@ Given a sorted array, make a balanced binary search tree.
     ii) Get the middle element of the right half, and make it the right child of the root created in step 1.
 
 ![sorted_to_BST](images_binary_search_tree/sorted_array_to_BST.jpg)
+
+## BST from preorder traversal
+
+Given a preorder traversal of a binary search tree, construct the BST.
+
+The first node will be the root node.
+
+Idea: set a range {min, max} for every node. Initially, the range is {INT_MIN, INT_MAx}.
+
+Construction of the left subtree: set the range as {INT_MIN, root->data}. If a value is in this range, it belongs to the left subtree.
+
+Construction of right subtree: set the range as {root->data, INT_MAX}. If a value is in this range, it belongs to the right subtree.
+
