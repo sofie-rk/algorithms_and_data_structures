@@ -20,7 +20,7 @@ void MaxHeap::bubbleDown(int i) {
     // Find index of max child
     int maxChild = maxOfChild(H[left(i)], H[right(i)], i);
 
-    while (H[maxChild] > H[i] && left(i)<=numberOfElements && right(i)<=numberOfElements) {
+    while (H[maxChild] > H[i] && left(i)<=numberOfElements+1 && right(i)<=numberOfElements+1) {
         swap(&H[i], &H[maxChild]);
         i = maxChild;
 

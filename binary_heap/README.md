@@ -4,7 +4,7 @@ A binary tree is a rooted tree. All levels in the tree are completely filled (ea
 
 Each node in a heap store v.key, v.parent, v.left, v.right
 
-In a **max heap**, the root node must be the maximum among all keys. An example is given below. In a **min heap**, the root node must be the minimum among all keys.
+In a **max heap**, the root node must be the maximum among all keys. For all nodes v, all keys in left subtree and right subtree must be less than or equal to v.key. An example is given below. In a **min heap**, the root node must be the minimum among all keys. For all nodes v, all keys in left subtree and right subtree must be bigger than or equal to v.key.
 
 ![heap1](heap1.png)
 
@@ -41,3 +41,21 @@ For the image above, array H is: H = [-, 16, 13, 11, 7, 5, 9, 1, 4]
 
 ## Binary heap as a priority queue
 insertKey(x), deleteKey(x), extractMax(), increaseKey(i,k) are operations in O(log(n)) time.
+
+## Heapsort
+
+Heaps can be used to sort an array H[1 ... n]. 
+
+1. Build a max heap for H.
+
+2. Apply n EXTRACTMAX() on the heap. Replace the returned element at the end of the array, and reduce size of heap by 1.
+
+3. Return H
+
+Time complexity:
+
+Constructing the heap: O(n).
+
+n EXTRACTMAX in O(n log(n)) time.
+
+Total time: O(n log(n))
