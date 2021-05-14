@@ -59,3 +59,19 @@ Constructing the heap: O(n).
 n EXTRACTMAX in O(n log(n)) time.
 
 Total time: O(n log(n))
+
+
+## Merge k sorted arrays using a heap
+
+Given k sorted arrays (from high to low) of size n each, merge them using a max heap, and print the sorted output.
+
+1. Create a max Heap, and insert the first element of all k arrays. O(k).
+
+2. Run until the size of max Heap is greater than zeors.
+
+3. Use EXTRACTMAX to remove the top element of the max Heap.  O(log(k))
+
+4. Insert the next element for the same array in which the removed element belonged. If array is empty, replace root with infinite. After replacing the root, heapify the tree.
+
+n elements in each array. Total running time: O(n log(k)).
+
